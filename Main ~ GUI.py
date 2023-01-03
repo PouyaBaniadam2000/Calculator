@@ -1,7 +1,9 @@
 import decimal
 import math
+import os
 import random
 import string
+import sys
 from decimal import Decimal
 from math import log10, sin, cos, tan, sqrt, factorial
 from tkinter import *
@@ -10,13 +12,22 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+def resource_path(relative_path):
+    global base_path
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath("Assets\\Images")
+
+    return os.path.join(base_path, relative_path)
+
+
 def cal_screen():
     def complex_equation(phrase):
         global answer_for_later
         data = phrase
         all_operators = ("^", "*", "/", "+", "-")
         all_parenthesis = ("(", ")")
-        all_trigonometry_and_log = ("sin", "cos", "tan", "cot", "log", "-sin", "-cos", "-tan", "-cot", "-log")
         all_first_alphabet_of_sin_cos_tan_cot_log = ("s", "c", "t", "l")
 
         temp = []
@@ -316,7 +327,6 @@ def cal_screen():
         data_list = temp_data_list.copy()
         del temp_data_list
 
-        all_parenthesis = ("(", ")")
         temp_counter = -1
         for data_list_remaker in data_list:
             temp_counter += 1
@@ -1148,14 +1158,14 @@ def cal_screen():
                     button_integral_icon = "integral_icon"
 
                     if body_theme_selected == 1:
-                        equation_solved = PhotoImage(file="assets\equation_section\error_show.png")
+                        equation_solved = PhotoImage(file=resource_path("error_show.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#FF4D00"
 
                         button_bg = "#00DF81"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\home.png")
+                        button_home = PhotoImage(file=resource_path(f"home.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1165,13 +1175,13 @@ def cal_screen():
 
                     if body_theme_selected == 2:
                         equation_solved = PhotoImage(
-                            file="assets\equation_section\error_show_error_show.png")
+                            file=resource_path("error_show_error_show.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#94A915"
                         button_bg = "#FF0058"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1184,7 +1194,7 @@ def cal_screen():
                     button_base_converter_icon = "base_converter_icon"
                     button_integral_icon = "integral_icon"
 
-                    button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                    button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                     button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                     button_calculator_icon_label.place(x=10, y=0)
                     real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -1192,7 +1202,7 @@ def cal_screen():
                                                          activebackground=f"{header_bg_code}", command=cal_screen)
                     real_button_calculator_icon.place(x=10, y=0)
 
-                    button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                    button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                     button_base_converter_icon_label = Label(image=button_base_converter_icon, bg=f"{header_bg_code}")
                     button_base_converter_icon_label.place(x=180, y=2)
                     real_button_base_converter_icon = Button(root, image=button_base_converter_icon, borderwidth=0,
@@ -1201,7 +1211,7 @@ def cal_screen():
                                                              command=base_converter)
                     real_button_base_converter_icon.place(x=180, y=2)
 
-                    button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                    button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                     button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                     button_integral_icon_label.place(x=385, y=2)
                     real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -1233,13 +1243,13 @@ def cal_screen():
                     button_integral_icon = "integral_icon"
 
                     if body_theme_selected == 1:
-                        equation_solved = PhotoImage(file="assets\equation_section\equation_solved_1_root.png")
+                        equation_solved = PhotoImage(file=resource_path("equation_solved_1_root.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#15A997"
                         button_bg = "#910794"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1249,13 +1259,13 @@ def cal_screen():
 
                     if body_theme_selected == 2:
                         equation_solved = PhotoImage(
-                            file="assets\equation_section\equation_solved_1_root_equation_solved_1_root.png")
+                            file=resource_path("equation_solved_1_root_equation_solved_1_root.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#A9155C"
                         button_bg = "#942007"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehomehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehomehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1268,7 +1278,7 @@ def cal_screen():
                     button_base_converter_icon = "base_converter_icon"
                     button_integral_icon = "integral_icon"
 
-                    button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                    button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                     button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                     button_calculator_icon_label.place(x=10, y=0)
                     real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -1276,7 +1286,7 @@ def cal_screen():
                                                          activebackground=f"{header_bg_code}", command=cal_screen)
                     real_button_calculator_icon.place(x=10, y=0)
 
-                    button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                    button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                     button_base_converter_icon_label = Label(image=button_base_converter_icon, bg=f"{header_bg_code}")
                     button_base_converter_icon_label.place(x=180, y=2)
                     real_button_base_converter_icon = Button(root, image=button_base_converter_icon, borderwidth=0,
@@ -1285,7 +1295,7 @@ def cal_screen():
                                                              command=base_converter)
                     real_button_base_converter_icon.place(x=180, y=2)
 
-                    button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                    button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                     button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                     button_integral_icon_label.place(x=385, y=2)
                     real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -1340,13 +1350,13 @@ def cal_screen():
                         button_integral_icon = "integral_icon"
 
                         if body_theme_selected == 1:
-                            equation_solved = PhotoImage(file="assets\equation_section\error_show.png")
+                            equation_solved = PhotoImage(file=resource_path("error_show.png"))
                             equation_solved_label = Label(root, image=equation_solved)
                             equation_solved_label.place(x=-20, y=-7)
                             header_bg_code = "#FF4D00"
                             button_bg = "#00DF81"
 
-                            button_home = PhotoImage(file=f"assets\equation_section\homehomehomehome.png")
+                            button_home = PhotoImage(file=resource_path(f"homehomehomehome.png"))
                             button_home_label = Label(image=button_home, bg=f"{button_bg}")
                             button_home_label.place(x=175, y=470)
                             real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1356,13 +1366,13 @@ def cal_screen():
 
                         if body_theme_selected == 2:
                             equation_solved = PhotoImage(
-                                file="assets\equation_section\error_show_error_show.png")
+                                file=resource_path("error_show_error_show.png"))
                             equation_solved_label = Label(root, image=equation_solved)
                             equation_solved_label.place(x=-20, y=-7)
                             header_bg_code = "#94A915"
                             button_bg = "#FF0058"
 
-                            button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                            button_home = PhotoImage(file=resource_path(f"homehome.png"))
                             button_home_label = Label(image=button_home, bg=f"{button_bg}")
                             button_home_label.place(x=175, y=470)
                             real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1375,7 +1385,7 @@ def cal_screen():
                         button_base_converter_icon = "base_converter_icon"
                         button_integral_icon = "integral_icon"
 
-                        button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                        button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                         button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                         button_calculator_icon_label.place(x=10, y=0)
                         real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -1383,7 +1393,7 @@ def cal_screen():
                                                              activebackground=f"{header_bg_code}", command=cal_screen)
                         real_button_calculator_icon.place(x=10, y=0)
 
-                        button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                        button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                         button_base_converter_icon_label = Label(image=button_base_converter_icon,
                                                                  bg=f"{header_bg_code}")
                         button_base_converter_icon_label.place(x=180, y=2)
@@ -1393,7 +1403,7 @@ def cal_screen():
                                                                  command=base_converter)
                         real_button_base_converter_icon.place(x=180, y=2)
 
-                        button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                        button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                         button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                         button_integral_icon_label.place(x=385, y=2)
                         real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -1426,13 +1436,13 @@ def cal_screen():
                     button_integral_icon = "integral_icon"
 
                     if body_theme_selected == 1:
-                        equation_solved = PhotoImage(file="assets\equation_section\error_show.png")
+                        equation_solved = PhotoImage(file=resource_path("error_show.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#FF4D00"
                         button_bg = "#00DF81"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\home.png")
+                        button_home = PhotoImage(file=resource_path(f"home.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1442,13 +1452,13 @@ def cal_screen():
 
                     if body_theme_selected == 2:
                         equation_solved = PhotoImage(
-                            file="assets\equation_section\error_show_error_show.png")
+                            file=resource_path("error_show_error_show.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#94A915"
                         button_bg = "#FF0058"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehomehomehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehomehomehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1461,7 +1471,7 @@ def cal_screen():
                     button_base_converter_icon = "base_converter_icon"
                     button_integral_icon = "integral_icon"
 
-                    button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                    button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                     button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                     button_calculator_icon_label.place(x=10, y=0)
                     real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -1469,7 +1479,7 @@ def cal_screen():
                                                          activebackground=f"{header_bg_code}", command=cal_screen)
                     real_button_calculator_icon.place(x=10, y=0)
 
-                    button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                    button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                     button_base_converter_icon_label = Label(image=button_base_converter_icon, bg=f"{header_bg_code}")
                     button_base_converter_icon_label.place(x=180, y=2)
                     real_button_base_converter_icon = Button(root, image=button_base_converter_icon, borderwidth=0,
@@ -1478,7 +1488,7 @@ def cal_screen():
                                                              command=base_converter)
                     real_button_base_converter_icon.place(x=180, y=2)
 
-                    button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                    button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                     button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                     button_integral_icon_label.place(x=385, y=2)
                     real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -1511,14 +1521,14 @@ def cal_screen():
                     button_integral_icon = "integral_icon"
 
                     if body_theme_selected == 1:
-                        equation_solved = PhotoImage(file="assets\equation_section\equation_solved_1_root.png")
+                        equation_solved = PhotoImage(file=resource_path("equation_solved_1_root.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#15A997"
 
                         button_bg = "#910794"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1528,13 +1538,13 @@ def cal_screen():
 
                     if body_theme_selected == 2:
                         equation_solved = PhotoImage(
-                            file="assets\equation_section\equation_solved_1_root_equation_solved_1_root.png")
+                            file=resource_path("equation_solved_1_root_equation_solved_1_root.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#A9155C"
                         button_bg = "#942007"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehomehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehomehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1547,7 +1557,7 @@ def cal_screen():
                     button_base_converter_icon = "base_converter_icon"
                     button_integral_icon = "integral_icon"
 
-                    button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                    button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                     button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                     button_calculator_icon_label.place(x=10, y=0)
                     real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -1555,7 +1565,7 @@ def cal_screen():
                                                          activebackground=f"{header_bg_code}", command=cal_screen)
                     real_button_calculator_icon.place(x=10, y=0)
 
-                    button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                    button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                     button_base_converter_icon_label = Label(image=button_base_converter_icon, bg=f"{header_bg_code}")
                     button_base_converter_icon_label.place(x=180, y=2)
                     real_button_base_converter_icon = Button(root, image=button_base_converter_icon, borderwidth=0,
@@ -1564,7 +1574,7 @@ def cal_screen():
                                                              command=base_converter)
                     real_button_base_converter_icon.place(x=180, y=2)
 
-                    button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                    button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                     button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                     button_integral_icon_label.place(x=385, y=2)
                     real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -1623,13 +1633,13 @@ def cal_screen():
                         button_integral_icon = "integral_icon"
 
                         if body_theme_selected == 1:
-                            equation_solved = PhotoImage(file="assets\equation_section\error_show.png")
+                            equation_solved = PhotoImage(file=resource_path("error_show.png"))
                             equation_solved_label = Label(root, image=equation_solved)
                             equation_solved_label.place(x=-20, y=-7)
                             header_bg_code = "#FF4D00"
                             button_bg = "#00DF81"
 
-                            button_home = PhotoImage(file=f"assets\equation_section\homehomehomehome.png")
+                            button_home = PhotoImage(file=resource_path(f"homehomehomehome.png"))
                             button_home_label = Label(image=button_home, bg=f"{button_bg}")
                             button_home_label.place(x=175, y=470)
                             real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1639,13 +1649,13 @@ def cal_screen():
 
                         if body_theme_selected == 2:
                             equation_solved = PhotoImage(
-                                file="assets\equation_section\error_show_error_show.png")
+                                file=resource_path("error_show_error_show.png"))
                             equation_solved_label = Label(root, image=equation_solved)
                             equation_solved_label.place(x=-20, y=-7)
                             header_bg_code = "#94A915"
                             button_bg = "#FF0058"
 
-                            button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                            button_home = PhotoImage(file=resource_path(f"homehome.png"))
                             button_home_label = Label(image=button_home, bg=f"{button_bg}")
                             button_home_label.place(x=175, y=470)
                             real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1658,7 +1668,7 @@ def cal_screen():
                         button_base_converter_icon = "base_converter_icon"
                         button_integral_icon = "integral_icon"
 
-                        button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                        button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                         button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                         button_calculator_icon_label.place(x=10, y=0)
                         real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -1666,7 +1676,7 @@ def cal_screen():
                                                              activebackground=f"{header_bg_code}", command=cal_screen)
                         real_button_calculator_icon.place(x=10, y=0)
 
-                        button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                        button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                         button_base_converter_icon_label = Label(image=button_base_converter_icon,
                                                                  bg=f"{header_bg_code}")
                         button_base_converter_icon_label.place(x=180, y=2)
@@ -1676,7 +1686,7 @@ def cal_screen():
                                                                  command=base_converter)
                         real_button_base_converter_icon.place(x=180, y=2)
 
-                        button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                        button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                         button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                         button_integral_icon_label.place(x=385, y=2)
                         real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -1708,13 +1718,13 @@ def cal_screen():
                     button_integral_icon = "integral_icon"
 
                     if body_theme_selected == 1:
-                        equation_solved = PhotoImage(file="assets\equation_section\error_show.png")
+                        equation_solved = PhotoImage(file=resource_path("error_show.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#FF4D00"
                         button_bg = "#00DF81"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehomehomehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehomehomehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1724,13 +1734,13 @@ def cal_screen():
 
                     if body_theme_selected == 2:
                         equation_solved = PhotoImage(
-                            file="assets\equation_section\error_show_error_show.png")
+                            file=resource_path("error_show_error_show.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#94A915"
                         button_bg = "#FF0058"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1743,7 +1753,7 @@ def cal_screen():
                     button_base_converter_icon = "base_converter_icon"
                     button_integral_icon = "integral_icon"
 
-                    button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                    button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                     button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                     button_calculator_icon_label.place(x=10, y=0)
                     real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -1751,7 +1761,7 @@ def cal_screen():
                                                          activebackground=f"{header_bg_code}", command=cal_screen)
                     real_button_calculator_icon.place(x=10, y=0)
 
-                    button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                    button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                     button_base_converter_icon_label = Label(image=button_base_converter_icon, bg=f"{header_bg_code}")
                     button_base_converter_icon_label.place(x=180, y=2)
                     real_button_base_converter_icon = Button(root, image=button_base_converter_icon, borderwidth=0,
@@ -1760,7 +1770,7 @@ def cal_screen():
                                                              command=base_converter)
                     real_button_base_converter_icon.place(x=180, y=2)
 
-                    button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                    button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                     button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                     button_integral_icon_label.place(x=385, y=2)
                     real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -1791,13 +1801,13 @@ def cal_screen():
                     button_integral_icon = "integral_icon"
 
                     if body_theme_selected == 1:
-                        equation_solved = PhotoImage(file="assets\equation_section\equation_solved_2_roots.png")
+                        equation_solved = PhotoImage(file=resource_path("equation_solved_2_roots.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-10, y=-7)
                         header_bg_code = "#15A997"
                         button_bg = "#910794"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1807,13 +1817,13 @@ def cal_screen():
 
                     if body_theme_selected == 2:
                         equation_solved = PhotoImage(
-                            file="assets\equation_section\equation_solved_2_roots_equation_solved_2_roots.png")
+                            file=resource_path("equation_solved_2_roots_equation_solved_2_roots.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-10, y=-7)
                         header_bg_code = "#A9155C"
                         button_bg = "#942007"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1826,7 +1836,7 @@ def cal_screen():
                     button_base_converter_icon = "base_converter_icon"
                     button_integral_icon = "integral_icon"
 
-                    button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                    button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                     button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                     button_calculator_icon_label.place(x=10, y=0)
                     real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -1834,7 +1844,7 @@ def cal_screen():
                                                          activebackground=f"{header_bg_code}", command=cal_screen)
                     real_button_calculator_icon.place(x=10, y=0)
 
-                    button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                    button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                     button_base_converter_icon_label = Label(image=button_base_converter_icon, bg=f"{header_bg_code}")
                     button_base_converter_icon_label.place(x=180, y=2)
                     real_button_base_converter_icon = Button(root, image=button_base_converter_icon, borderwidth=0,
@@ -1843,7 +1853,7 @@ def cal_screen():
                                                              command=base_converter)
                     real_button_base_converter_icon.place(x=180, y=2)
 
-                    button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                    button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                     button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                     button_integral_icon_label.place(x=385, y=2)
                     real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -1940,13 +1950,13 @@ def cal_screen():
                             button_integral_icon = "integral_icon"
 
                             if body_theme_selected == 1:
-                                equation_solved = PhotoImage(file="assets\equation_section\error_show.png")
+                                equation_solved = PhotoImage(file=resource_path("error_show.png"))
                                 equation_solved_label = Label(root, image=equation_solved)
                                 equation_solved_label.place(x=-25, y=-7)
                                 header_bg_code = "#FF4D00"
                                 button_bg = "#00DF81"
 
-                                button_home = PhotoImage(file=f"assets\equation_section\home.png")
+                                button_home = PhotoImage(file=resource_path(f"home.png"))
                                 button_home_label = Label(image=button_home, bg=f"{button_bg}")
                                 button_home_label.place(x=175, y=470)
                                 real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1956,13 +1966,13 @@ def cal_screen():
 
                             if body_theme_selected == 2:
                                 equation_solved = PhotoImage(
-                                    file="assets\equation_section\error_show_error_show.png")
+                                    file=resource_path("error_show_error_show.png"))
                                 equation_solved_label = Label(root, image=equation_solved)
                                 equation_solved_label.place(x=-25, y=-7)
                                 header_bg_code = "#94A915"
                                 button_bg = "#FF0058"
 
-                                button_home = PhotoImage(file=f"assets\equation_section\homehomehomehome.png")
+                                button_home = PhotoImage(file=resource_path(f"homehomehomehome.png"))
                                 button_home_label = Label(image=button_home, bg=f"{button_bg}")
                                 button_home_label.place(x=175, y=470)
                                 real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -1975,7 +1985,7 @@ def cal_screen():
                             button_base_converter_icon = "base_converter_icon"
                             button_integral_icon = "integral_icon"
 
-                            button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                            button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                             button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                             button_calculator_icon_label.place(x=10, y=0)
                             real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -1985,7 +1995,7 @@ def cal_screen():
                             real_button_calculator_icon.place(x=10, y=0)
 
                             button_base_converter_icon = PhotoImage(
-                                file=f"assets\icons\{button_base_converter_icon}.png")
+                                file=resource_path(f"{button_base_converter_icon}.png"))
                             button_base_converter_icon_label = Label(image=button_base_converter_icon,
                                                                      bg=f"{header_bg_code}")
                             button_base_converter_icon_label.place(x=180, y=2)
@@ -1996,7 +2006,7 @@ def cal_screen():
                                                                      command=base_converter)
                             real_button_base_converter_icon.place(x=180, y=2)
 
-                            button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                            button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                             button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                             button_integral_icon_label.place(x=385, y=2)
                             real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -2027,13 +2037,13 @@ def cal_screen():
                         button_integral_icon = "integral_icon"
 
                         if body_theme_selected == 1:
-                            equation_solved = PhotoImage(file="assets\equation_section\error_show.png")
+                            equation_solved = PhotoImage(file=resource_path("error_show.png"))
                             equation_solved_label = Label(root, image=equation_solved)
                             equation_solved_label.place(x=-20, y=-7)
                             header_bg_code = "#FF4D00"
                             button_bg = "#00DF81"
 
-                            button_home = PhotoImage(file=f"assets\equation_section\homehomehomehome.png")
+                            button_home = PhotoImage(file=resource_path(f"homehomehomehome.png"))
                             button_home_label = Label(image=button_home, bg=f"{button_bg}")
                             button_home_label.place(x=175, y=470)
                             real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2043,13 +2053,13 @@ def cal_screen():
 
                         if body_theme_selected == 2:
                             equation_solved = PhotoImage(
-                                file="assets\equation_section\error_show_error_show.png")
+                                file=resource_path("error_show_error_show.png"))
                             equation_solved_label = Label(root, image=equation_solved)
                             equation_solved_label.place(x=-20, y=-7)
                             header_bg_code = "#94A915"
                             button_bg = "#FF0058"
 
-                            button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                            button_home = PhotoImage(file=resource_path(f"homehome.png"))
                             button_home_label = Label(image=button_home, bg=f"{button_bg}")
                             button_home_label.place(x=175, y=470)
                             real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2062,7 +2072,7 @@ def cal_screen():
                         button_base_converter_icon = "base_converter_icon"
                         button_integral_icon = "integral_icon"
 
-                        button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                        button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                         button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                         button_calculator_icon_label.place(x=10, y=0)
                         real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -2070,7 +2080,7 @@ def cal_screen():
                                                              activebackground=f"{header_bg_code}", command=cal_screen)
                         real_button_calculator_icon.place(x=10, y=0)
 
-                        button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                        button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                         button_base_converter_icon_label = Label(image=button_base_converter_icon,
                                                                  bg=f"{header_bg_code}")
                         button_base_converter_icon_label.place(x=180, y=2)
@@ -2080,7 +2090,7 @@ def cal_screen():
                                                                  command=base_converter)
                         real_button_base_converter_icon.place(x=180, y=2)
 
-                        button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                        button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                         button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                         button_integral_icon_label.place(x=385, y=2)
                         real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -2132,14 +2142,14 @@ def cal_screen():
                     button_integral_icon = "integral_icon"
 
                     if body_theme_selected == 1:
-                        equation_solved = PhotoImage(file="assets\equation_section\error_show.png")
+                        equation_solved = PhotoImage(file=resource_path("error_show.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#FF4D00"
 
                         button_bg = "#00DF81"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\home.png")
+                        button_home = PhotoImage(file=resource_path(f"home.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2149,13 +2159,13 @@ def cal_screen():
 
                     if body_theme_selected == 2:
                         equation_solved = PhotoImage(
-                            file="assets\equation_section\error_show_error_show.png")
+                            file=resource_path("error_show_error_show.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#94A915"
                         button_bg = "#FF0058"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2168,7 +2178,7 @@ def cal_screen():
                     button_base_converter_icon = "base_converter_icon"
                     button_integral_icon = "integral_icon"
 
-                    button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                    button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                     button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                     button_calculator_icon_label.place(x=10, y=0)
                     real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -2176,7 +2186,7 @@ def cal_screen():
                                                          activebackground=f"{header_bg_code}", command=cal_screen)
                     real_button_calculator_icon.place(x=10, y=0)
 
-                    button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                    button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                     button_base_converter_icon_label = Label(image=button_base_converter_icon, bg=f"{header_bg_code}")
                     button_base_converter_icon_label.place(x=180, y=2)
                     real_button_base_converter_icon = Button(root, image=button_base_converter_icon, borderwidth=0,
@@ -2185,7 +2195,7 @@ def cal_screen():
                                                              command=base_converter)
                     real_button_base_converter_icon.place(x=180, y=2)
 
-                    button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                    button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                     button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                     button_integral_icon_label.place(x=385, y=2)
                     real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -2217,13 +2227,13 @@ def cal_screen():
                     button_integral_icon = "integral_icon"
 
                     if body_theme_selected == 1:
-                        equation_solved = PhotoImage(file="assets\equation_section\equation_solved_1_root.png")
+                        equation_solved = PhotoImage(file=resource_path("equation_solved_1_root.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#15A997"
                         button_bg = "#910794"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2233,13 +2243,13 @@ def cal_screen():
 
                     if body_theme_selected == 2:
                         equation_solved = PhotoImage(
-                            file="assets\equation_section\equation_solved_1_root_equation_solved_1_root.png")
+                            file=resource_path("equation_solved_1_root_equation_solved_1_root.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#A9155C"
                         button_bg = "#942007"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehomehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehomehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2252,7 +2262,7 @@ def cal_screen():
                     button_base_converter_icon = "base_converter_icon"
                     button_integral_icon = "integral_icon"
 
-                    button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                    button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                     button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                     button_calculator_icon_label.place(x=10, y=0)
                     real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -2260,7 +2270,7 @@ def cal_screen():
                                                          activebackground=f"{header_bg_code}", command=cal_screen)
                     real_button_calculator_icon.place(x=10, y=0)
 
-                    button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                    button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                     button_base_converter_icon_label = Label(image=button_base_converter_icon, bg=f"{header_bg_code}")
                     button_base_converter_icon_label.place(x=180, y=2)
                     real_button_base_converter_icon = Button(root, image=button_base_converter_icon, borderwidth=0,
@@ -2269,7 +2279,7 @@ def cal_screen():
                                                              command=base_converter)
                     real_button_base_converter_icon.place(x=180, y=2)
 
-                    button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                    button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                     button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                     button_integral_icon_label.place(x=385, y=2)
                     real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -2324,13 +2334,13 @@ def cal_screen():
                         button_integral_icon = "integral_icon"
 
                         if body_theme_selected == 1:
-                            equation_solved = PhotoImage(file="assets\equation_section\error_show.png")
+                            equation_solved = PhotoImage(file=resource_path("error_show.png"))
                             equation_solved_label = Label(root, image=equation_solved)
                             equation_solved_label.place(x=-20, y=-7)
                             header_bg_code = "#FF4D00"
                             button_bg = "#00DF81"
 
-                            button_home = PhotoImage(file=f"assets\equation_section\homehomehomehome.png")
+                            button_home = PhotoImage(file=resource_path(f"homehomehomehome.png"))
                             button_home_label = Label(image=button_home, bg=f"{button_bg}")
                             button_home_label.place(x=175, y=470)
                             real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2340,13 +2350,13 @@ def cal_screen():
 
                         if body_theme_selected == 2:
                             equation_solved = PhotoImage(
-                                file="assets\equation_section\error_show_error_show.png")
+                                file=resource_path("error_show_error_show.png"))
                             equation_solved_label = Label(root, image=equation_solved)
                             equation_solved_label.place(x=-20, y=-7)
                             header_bg_code = "#94A915"
                             button_bg = "#FF0058"
 
-                            button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                            button_home = PhotoImage(file=resource_path(f"homehome.png"))
                             button_home_label = Label(image=button_home, bg=f"{button_bg}")
                             button_home_label.place(x=175, y=470)
                             real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2359,7 +2369,7 @@ def cal_screen():
                         button_base_converter_icon = "base_converter_icon"
                         button_integral_icon = "integral_icon"
 
-                        button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                        button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                         button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                         button_calculator_icon_label.place(x=10, y=0)
                         real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -2367,7 +2377,7 @@ def cal_screen():
                                                              activebackground=f"{header_bg_code}", command=cal_screen)
                         real_button_calculator_icon.place(x=10, y=0)
 
-                        button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                        button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                         button_base_converter_icon_label = Label(image=button_base_converter_icon,
                                                                  bg=f"{header_bg_code}")
                         button_base_converter_icon_label.place(x=180, y=2)
@@ -2377,7 +2387,7 @@ def cal_screen():
                                                                  command=base_converter)
                         real_button_base_converter_icon.place(x=180, y=2)
 
-                        button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                        button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                         button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                         button_integral_icon_label.place(x=385, y=2)
                         real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -2418,13 +2428,13 @@ def cal_screen():
                     button_integral_icon = "integral_icon"
 
                     if body_theme_selected == 1:
-                        equation_solved = PhotoImage(file="assets\equation_section\error_show.png")
+                        equation_solved = PhotoImage(file=resource_path("error_show.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#FF4D00"
                         button_bg = "#00DF81"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\home.png")
+                        button_home = PhotoImage(file=resource_path(f"home.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2434,13 +2444,13 @@ def cal_screen():
 
                     if body_theme_selected == 2:
                         equation_solved = PhotoImage(
-                            file="assets\equation_section\error_show_error_show.png")
+                            file=resource_path("error_show_error_show.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#94A915"
                         button_bg = "#FF0058"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehomehomehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehomehomehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2453,7 +2463,7 @@ def cal_screen():
                     button_base_converter_icon = "base_converter_icon"
                     button_integral_icon = "integral_icon"
 
-                    button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                    button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                     button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                     button_calculator_icon_label.place(x=10, y=0)
                     real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -2461,7 +2471,7 @@ def cal_screen():
                                                          activebackground=f"{header_bg_code}", command=cal_screen)
                     real_button_calculator_icon.place(x=10, y=0)
 
-                    button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                    button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                     button_base_converter_icon_label = Label(image=button_base_converter_icon, bg=f"{header_bg_code}")
                     button_base_converter_icon_label.place(x=180, y=2)
                     real_button_base_converter_icon = Button(root, image=button_base_converter_icon, borderwidth=0,
@@ -2470,7 +2480,7 @@ def cal_screen():
                                                              command=base_converter)
                     real_button_base_converter_icon.place(x=180, y=2)
 
-                    button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                    button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                     button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                     button_integral_icon_label.place(x=385, y=2)
                     real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -2503,14 +2513,14 @@ def cal_screen():
                     button_integral_icon = "integral_icon"
 
                     if body_theme_selected == 1:
-                        equation_solved = PhotoImage(file="assets\equation_section\equation_solved_1_root.png")
+                        equation_solved = PhotoImage(file=resource_path("equation_solved_1_root.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#15A997"
 
                         button_bg = "#910794"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2520,13 +2530,13 @@ def cal_screen():
 
                     if body_theme_selected == 2:
                         equation_solved = PhotoImage(
-                            file="assets\equation_section\equation_solved_1_root_equation_solved_1_root.png")
+                            file=resource_path("equation_solved_1_root_equation_solved_1_root.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#A9155C"
                         button_bg = "#942007"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehomehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehomehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2539,7 +2549,7 @@ def cal_screen():
                     button_base_converter_icon = "base_converter_icon"
                     button_integral_icon = "integral_icon"
 
-                    button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                    button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                     button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                     button_calculator_icon_label.place(x=10, y=0)
                     real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -2547,7 +2557,7 @@ def cal_screen():
                                                          activebackground=f"{header_bg_code}", command=cal_screen)
                     real_button_calculator_icon.place(x=10, y=0)
 
-                    button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                    button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                     button_base_converter_icon_label = Label(image=button_base_converter_icon, bg=f"{header_bg_code}")
                     button_base_converter_icon_label.place(x=180, y=2)
                     real_button_base_converter_icon = Button(root, image=button_base_converter_icon, borderwidth=0,
@@ -2556,7 +2566,7 @@ def cal_screen():
                                                              command=base_converter)
                     real_button_base_converter_icon.place(x=180, y=2)
 
-                    button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                    button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                     button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                     button_integral_icon_label.place(x=385, y=2)
                     real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -2615,13 +2625,13 @@ def cal_screen():
                         button_integral_icon = "integral_icon"
 
                         if body_theme_selected == 1:
-                            equation_solved = PhotoImage(file="assets\equation_section\error_show.png")
+                            equation_solved = PhotoImage(file=resource_path("error_show.png"))
                             equation_solved_label = Label(root, image=equation_solved)
                             equation_solved_label.place(x=-20, y=-7)
                             header_bg_code = "#FF4D00"
                             button_bg = "#00DF81"
 
-                            button_home = PhotoImage(file=f"assets\equation_section\homehomehomehome.png")
+                            button_home = PhotoImage(file=resource_path(f"homehomehomehome.png"))
                             button_home_label = Label(image=button_home, bg=f"{button_bg}")
                             button_home_label.place(x=175, y=470)
                             real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2631,13 +2641,13 @@ def cal_screen():
 
                         if body_theme_selected == 2:
                             equation_solved = PhotoImage(
-                                file="assets\equation_section\error_show_error_show.png")
+                                file=resource_path("error_show_error_show.png"))
                             equation_solved_label = Label(root, image=equation_solved)
                             equation_solved_label.place(x=-20, y=-7)
                             header_bg_code = "#94A915"
                             button_bg = "#FF0058"
 
-                            button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                            button_home = PhotoImage(file=resource_path(f"homehome.png"))
                             button_home_label = Label(image=button_home, bg=f"{button_bg}")
                             button_home_label.place(x=175, y=470)
                             real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2650,7 +2660,7 @@ def cal_screen():
                         button_base_converter_icon = "base_converter_icon"
                         button_integral_icon = "integral_icon"
 
-                        button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                        button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                         button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                         button_calculator_icon_label.place(x=10, y=0)
                         real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -2658,7 +2668,7 @@ def cal_screen():
                                                              activebackground=f"{header_bg_code}", command=cal_screen)
                         real_button_calculator_icon.place(x=10, y=0)
 
-                        button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                        button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                         button_base_converter_icon_label = Label(image=button_base_converter_icon,
                                                                  bg=f"{header_bg_code}")
                         button_base_converter_icon_label.place(x=180, y=2)
@@ -2668,7 +2678,7 @@ def cal_screen():
                                                                  command=base_converter)
                         real_button_base_converter_icon.place(x=180, y=2)
 
-                        button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                        button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                         button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                         button_integral_icon_label.place(x=385, y=2)
                         real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -2708,13 +2718,13 @@ def cal_screen():
                     button_integral_icon = "integral_icon"
 
                     if body_theme_selected == 1:
-                        equation_solved = PhotoImage(file="assets\equation_section\error_show.png")
+                        equation_solved = PhotoImage(file=resource_path("error_show.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#FF4D00"
                         button_bg = "#00DF81"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehomehomehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehomehomehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2724,13 +2734,13 @@ def cal_screen():
 
                     if body_theme_selected == 2:
                         equation_solved = PhotoImage(
-                            file="assets\equation_section\error_show_error_show.png")
+                            file=resource_path("error_show_error_show.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-20, y=-7)
                         header_bg_code = "#94A915"
                         button_bg = "#FF0058"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2743,7 +2753,7 @@ def cal_screen():
                     button_base_converter_icon = "base_converter_icon"
                     button_integral_icon = "integral_icon"
 
-                    button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                    button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                     button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                     button_calculator_icon_label.place(x=10, y=0)
                     real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -2751,7 +2761,7 @@ def cal_screen():
                                                          activebackground=f"{header_bg_code}", command=cal_screen)
                     real_button_calculator_icon.place(x=10, y=0)
 
-                    button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                    button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                     button_base_converter_icon_label = Label(image=button_base_converter_icon, bg=f"{header_bg_code}")
                     button_base_converter_icon_label.place(x=180, y=2)
                     real_button_base_converter_icon = Button(root, image=button_base_converter_icon, borderwidth=0,
@@ -2760,7 +2770,7 @@ def cal_screen():
                                                              command=base_converter)
                     real_button_base_converter_icon.place(x=180, y=2)
 
-                    button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                    button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                     button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                     button_integral_icon_label.place(x=385, y=2)
                     real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -2791,13 +2801,13 @@ def cal_screen():
                     button_integral_icon = "integral_icon"
 
                     if body_theme_selected == 1:
-                        equation_solved = PhotoImage(file="assets\equation_section\equation_solved_2_roots.png")
+                        equation_solved = PhotoImage(file=resource_path("equation_solved_2_roots.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-10, y=-7)
                         header_bg_code = "#15A997"
                         button_bg = "#910794"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2807,13 +2817,13 @@ def cal_screen():
 
                     if body_theme_selected == 2:
                         equation_solved = PhotoImage(
-                            file="assets\equation_section\equation_solved_2_roots_equation_solved_2_roots.png")
+                            file=resource_path("equation_solved_2_roots_equation_solved_2_roots.png"))
                         equation_solved_label = Label(root, image=equation_solved)
                         equation_solved_label.place(x=-10, y=-7)
                         header_bg_code = "#A9155C"
                         button_bg = "#942007"
 
-                        button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                        button_home = PhotoImage(file=resource_path(f"homehome.png"))
                         button_home_label = Label(image=button_home, bg=f"{button_bg}")
                         button_home_label.place(x=175, y=470)
                         real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2826,7 +2836,7 @@ def cal_screen():
                     button_base_converter_icon = "base_converter_icon"
                     button_integral_icon = "integral_icon"
 
-                    button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                    button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                     button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                     button_calculator_icon_label.place(x=10, y=0)
                     real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -2834,7 +2844,7 @@ def cal_screen():
                                                          activebackground=f"{header_bg_code}", command=cal_screen)
                     real_button_calculator_icon.place(x=10, y=0)
 
-                    button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                    button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                     button_base_converter_icon_label = Label(image=button_base_converter_icon, bg=f"{header_bg_code}")
                     button_base_converter_icon_label.place(x=180, y=2)
                     real_button_base_converter_icon = Button(root, image=button_base_converter_icon, borderwidth=0,
@@ -2843,7 +2853,7 @@ def cal_screen():
                                                              command=base_converter)
                     real_button_base_converter_icon.place(x=180, y=2)
 
-                    button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                    button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                     button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                     button_integral_icon_label.place(x=385, y=2)
                     real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -2940,13 +2950,13 @@ def cal_screen():
                             button_integral_icon = "integral_icon"
 
                             if body_theme_selected == 1:
-                                equation_solved = PhotoImage(file="assets\equation_section\error_show.png")
+                                equation_solved = PhotoImage(file=resource_path("error_show.png"))
                                 equation_solved_label = Label(root, image=equation_solved)
                                 equation_solved_label.place(x=-25, y=-7)
                                 header_bg_code = "#FF4D00"
                                 button_bg = "#00DF81"
 
-                                button_home = PhotoImage(file=f"assets\equation_section\home.png")
+                                button_home = PhotoImage(file=resource_path(f"home.png"))
                                 button_home_label = Label(image=button_home, bg=f"{button_bg}")
                                 button_home_label.place(x=175, y=470)
                                 real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2956,13 +2966,13 @@ def cal_screen():
 
                             if body_theme_selected == 2:
                                 equation_solved = PhotoImage(
-                                    file="assets\equation_section\error_show_error_show.png")
+                                    file=resource_path("error_show_error_show.png"))
                                 equation_solved_label = Label(root, image=equation_solved)
                                 equation_solved_label.place(x=-25, y=-7)
                                 header_bg_code = "#94A915"
                                 button_bg = "#FF0058"
 
-                                button_home = PhotoImage(file=f"assets\equation_section\homehomehomehome.png")
+                                button_home = PhotoImage(file=resource_path(f"homehomehomehome.png"))
                                 button_home_label = Label(image=button_home, bg=f"{button_bg}")
                                 button_home_label.place(x=175, y=470)
                                 real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -2975,7 +2985,7 @@ def cal_screen():
                             button_base_converter_icon = "base_converter_icon"
                             button_integral_icon = "integral_icon"
 
-                            button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                            button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                             button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                             button_calculator_icon_label.place(x=10, y=0)
                             real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -2985,7 +2995,7 @@ def cal_screen():
                             real_button_calculator_icon.place(x=10, y=0)
 
                             button_base_converter_icon = PhotoImage(
-                                file=f"assets\icons\{button_base_converter_icon}.png")
+                                file=resource_path(f"{button_base_converter_icon}.png"))
                             button_base_converter_icon_label = Label(image=button_base_converter_icon,
                                                                      bg=f"{header_bg_code}")
                             button_base_converter_icon_label.place(x=180, y=2)
@@ -2996,7 +3006,7 @@ def cal_screen():
                                                                      command=base_converter)
                             real_button_base_converter_icon.place(x=180, y=2)
 
-                            button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                            button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                             button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                             button_integral_icon_label.place(x=385, y=2)
                             real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -3027,13 +3037,13 @@ def cal_screen():
                         button_integral_icon = "integral_icon"
 
                         if body_theme_selected == 1:
-                            equation_solved = PhotoImage(file="assets\equation_section\error_show.png")
+                            equation_solved = PhotoImage(file=resource_path("error_show.png"))
                             equation_solved_label = Label(root, image=equation_solved)
                             equation_solved_label.place(x=-20, y=-7)
                             header_bg_code = "#FF4D00"
                             button_bg = "#00DF81"
 
-                            button_home = PhotoImage(file=f"assets\equation_section\homehomehomehome.png")
+                            button_home = PhotoImage(file=resource_path(f"homehomehomehome.png"))
                             button_home_label = Label(image=button_home, bg=f"{button_bg}")
                             button_home_label.place(x=175, y=470)
                             real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -3043,13 +3053,13 @@ def cal_screen():
 
                         if body_theme_selected == 2:
                             equation_solved = PhotoImage(
-                                file="assets\equation_section\error_show_error_show.png")
+                                file=resource_path("error_show_error_show.png"))
                             equation_solved_label = Label(root, image=equation_solved)
                             equation_solved_label.place(x=-20, y=-7)
                             header_bg_code = "#94A915"
                             button_bg = "#FF0058"
 
-                            button_home = PhotoImage(file=f"assets\equation_section\homehome.png")
+                            button_home = PhotoImage(file=resource_path(f"homehome.png"))
                             button_home_label = Label(image=button_home, bg=f"{button_bg}")
                             button_home_label.place(x=175, y=470)
                             real_button_home = Button(root, image=button_home, borderwidth=0,
@@ -3062,7 +3072,7 @@ def cal_screen():
                         button_base_converter_icon = "base_converter_icon"
                         button_integral_icon = "integral_icon"
 
-                        button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+                        button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
                         button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
                         button_calculator_icon_label.place(x=10, y=0)
                         real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -3070,7 +3080,7 @@ def cal_screen():
                                                              activebackground=f"{header_bg_code}", command=cal_screen)
                         real_button_calculator_icon.place(x=10, y=0)
 
-                        button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+                        button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
                         button_base_converter_icon_label = Label(image=button_base_converter_icon,
                                                                  bg=f"{header_bg_code}")
                         button_base_converter_icon_label.place(x=180, y=2)
@@ -3080,7 +3090,7 @@ def cal_screen():
                                                                  command=base_converter)
                         real_button_base_converter_icon.place(x=180, y=2)
 
-                        button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+                        button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
                         button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
                         button_integral_icon_label.place(x=385, y=2)
                         real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -3128,18 +3138,18 @@ def cal_screen():
         button_integral_icon = "integral_icon"
 
         if body_theme_selected == 1:
-            equation_screen = PhotoImage(file="assets\equation_section\Equation.png")
+            equation_screen = PhotoImage(file=resource_path("Equation.png"))
             equation_screen_label = Label(root, image=equation_screen)
             equation_screen_label.place(x=-30, y=-7)
 
-            button_graph = PhotoImage(file="assets\\equation_section\\graph.png")
+            button_graph = PhotoImage(file=resource_path("graph.png"))
             button_graph_label = Label(image=button_graph, bg="#D864CB")
             button_graph_label.place(x=340, y=302)
             real_button_graph = Button(root, text="8", image=button_graph, borderwidth=0, bg="#D864CB",
                                        activebackground="#D864CB", command=graph)
             real_button_graph.place(x=340, y=302)
 
-            button_solve = PhotoImage(file="assets\\equation_section\\solve.png")
+            button_solve = PhotoImage(file=resource_path("solve.png"))
             button_solve_label = Label(image=button_solve, bg="#D7C5D5")
             button_solve_label.place(x=10, y=302)
             real_button_solve = Button(root, text="8", image=button_solve, borderwidth=0, bg="#D7C5D5",
@@ -3149,18 +3159,18 @@ def cal_screen():
             header_bg_code = "#303D83"
 
         if body_theme_selected == 2:
-            equation_screen = PhotoImage(file="assets\equation_section\EquationEquation.png")
+            equation_screen = PhotoImage(file=resource_path("EquationEquation.png"))
             equation_screen_label = Label(root, image=equation_screen)
             equation_screen_label.place(x=-30, y=-7)
 
-            button_graph = PhotoImage(file="assets\\equation_section\\graphgraph.png")
+            button_graph = PhotoImage(file=resource_path("graphgraph.png"))
             button_graph_label = Label(image=button_graph, bg="#65C5DA")
             button_graph_label.place(x=340, y=302)
             real_button_graph = Button(root, text="8", image=button_graph, borderwidth=0, bg="#65C5DA",
                                        activebackground="#65C5DA", command=graph)
             real_button_graph.place(x=340, y=302)
 
-            button_solve = PhotoImage(file="assets\\equation_section\\solvesolve.png")
+            button_solve = PhotoImage(file=resource_path("solvesolve.png"))
             button_solve_label = Label(image=button_solve, bg="#ACBFC3")
             button_solve_label.place(x=10, y=302)
             real_button_solve = Button(root, text="8", image=button_solve, borderwidth=0, bg="#ACBFC3",
@@ -3170,18 +3180,18 @@ def cal_screen():
             header_bg_code = "#833A30"
 
         if body_theme_selected == 3:
-            equation_screen = PhotoImage(file="assets\equation_section\EquationEquationEquation.png")
+            equation_screen = PhotoImage(file=resource_path("EquationEquationEquation.png"))
             equation_screen_label = Label(root, image=equation_screen)
             equation_screen_label.place(x=-30, y=-7)
 
-            button_graph = PhotoImage(file="assets\\equation_section\\graphgraphgraph.png")
+            button_graph = PhotoImage(file=resource_path("graphgraphgraph.png"))
             button_graph_label = Label(image=button_graph, bg="#B8C150")
             button_graph_label.place(x=340, y=302)
             real_button_graph = Button(root, text="8", image=button_graph, borderwidth=0, bg="#B8C150",
                                        activebackground="#B8C150", command=graph)
             real_button_graph.place(x=340, y=302)
 
-            button_solve = PhotoImage(file="assets\\equation_section\\solvesolvesolve.png")
+            button_solve = PhotoImage(file=resource_path("solvesolvesolve.png"))
             button_solve_label = Label(image=button_solve, bg="#D4D8A7")
             button_solve_label.place(x=10, y=302)
             real_button_solve = Button(root, text="8", image=button_solve, borderwidth=0, bg="#D4D8A7",
@@ -3190,18 +3200,18 @@ def cal_screen():
             header_bg_code = "#833075"
 
         if body_theme_selected == 4:
-            equation_screen = PhotoImage(file="assets\equation_section\EquationEquationEquationEquation.png")
+            equation_screen = PhotoImage(file=resource_path("EquationEquationEquationEquation.png"))
             equation_screen_label = Label(root, image=equation_screen)
             equation_screen_label.place(x=-30, y=-7)
 
-            button_graph = PhotoImage(file="assets\\equation_section\\graphgraphgraphgraph.png")
+            button_graph = PhotoImage(file=resource_path("graphgraphgraphgraph.png"))
             button_graph_label = Label(image=button_graph, bg="#E48383")
             button_graph_label.place(x=340, y=302)
             real_button_graph = Button(root, text="8", image=button_graph, borderwidth=0, bg="#E48383",
                                        activebackground="#E48383", command=graph)
             real_button_graph.place(x=340, y=302)
 
-            button_solve = PhotoImage(file="assets\\equation_section\\solvesolvesolvesolve.png")
+            button_solve = PhotoImage(file=resource_path("solvesolvesolvesolve.png"))
             button_solve_label = Label(image=button_solve, bg="#D5B0B0")
             button_solve_label.place(x=10, y=302)
             real_button_solve = Button(root, text="8", image=button_solve, borderwidth=0, bg="#D5B0B0",
@@ -3240,14 +3250,14 @@ def cal_screen():
                        foreground="#ffffff")
         eq3_et.place(x=396, y=272, height=24, width=55)
 
-        button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+        button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
         button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
         button_calculator_icon_label.place(x=10, y=0)
         real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0, bg=f"{header_bg_code}",
                                              activebackground=f"{header_bg_code}", command=cal_screen)
         real_button_calculator_icon.place(x=10, y=0)
 
-        button_base_converter_icon = PhotoImage(file=f"assets\icons\{button_base_converter_icon}.png")
+        button_base_converter_icon = PhotoImage(file=resource_path(f"{button_base_converter_icon}.png"))
         button_base_converter_icon_label = Label(image=button_base_converter_icon, bg=f"{header_bg_code}")
         button_base_converter_icon_label.place(x=180, y=2)
         real_button_base_converter_icon = Button(root, image=button_base_converter_icon, borderwidth=0,
@@ -3255,7 +3265,7 @@ def cal_screen():
                                                  command=base_converter)
         real_button_base_converter_icon.place(x=180, y=2)
 
-        button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+        button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
         button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
         button_integral_icon_label.place(x=385, y=2)
         real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0, bg=f"{header_bg_code}",
@@ -3312,7 +3322,7 @@ def cal_screen():
                     number_to_be_converted = number_entry.get()
 
                     number_giver_screen = PhotoImage(
-                        file="assets\\base_converter_section\\number_giver.png")
+                        file=resource_path("number_giver.png"))
                     number_giver_screen_label = Label(root, image=number_giver_screen)
                     number_giver_screen_label.place(x=-15, y=-7)
 
@@ -3320,14 +3330,14 @@ def cal_screen():
                                           foreground="#ffffff")
                     number_shower.place(x=50, y=410, height=40, width=370)
 
-                    home = PhotoImage(file="assets\\base_converter_section\\home.png")
+                    home = PhotoImage(file=resource_path("home.png"))
                     home_label = Label(image=home, borderwidth=0)
                     home_label.place(x=175, y=465)
                     real_home = Button(root, image=home, borderwidth=0, background="black",
                                        activebackground="black", command=base_converter)
                     real_home.place(x=175, y=465)
 
-                    button_calculator_icon = PhotoImage(file=f"assets\icons\calculator_icon.png")
+                    button_calculator_icon = PhotoImage(file=resource_path(f"calculator_icon.png"))
                     button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"#BC7C00")
                     button_calculator_icon_label.place(x=10, y=0)
                     real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -3335,7 +3345,7 @@ def cal_screen():
                                                          activebackground=f"#BC7C00", command=cal_screen)
                     real_button_calculator_icon.place(x=10, y=0)
 
-                    button_equation_icon = PhotoImage(file=f"assets\icons\equation_icon.png")
+                    button_equation_icon = PhotoImage(file=resource_path(f"equation_icon.png"))
                     button_equation_icon_label = Label(image=button_equation_icon, bg=f"#BC7C00")
                     button_equation_icon_label.place(x=190, y=3)
                     real_button_equation_icon = Button(root, image=button_equation_icon, borderwidth=0,
@@ -3343,7 +3353,7 @@ def cal_screen():
                                                        activebackground=f"#BC7C00", command=equation)
                     real_button_equation_icon.place(x=190, y=3)
 
-                    button_integral_icon = PhotoImage(file=f"assets\icons\integral_icon.png")
+                    button_integral_icon = PhotoImage(file=resource_path(f"integral_icon.png"))
                     button_integral_icon_label = Label(image=button_integral_icon, bg=f"#BC7C00")
                     button_integral_icon_label.place(x=385, y=2)
                     real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -4304,7 +4314,7 @@ def cal_screen():
                 ending_base = int(to_base)
 
                 number_getter_screen = PhotoImage(
-                    file="assets\\base_converter_section\\number_getter.png")
+                    file=resource_path("number_getter.png"))
                 number_getter_screen_label = Label(root, image=number_getter_screen)
                 number_getter_screen_label.place(x=-15, y=-7)
 
@@ -4312,14 +4322,14 @@ def cal_screen():
                                      foreground="#ffffff")
                 number_entry.place(x=50, y=410, height=40, width=370)
 
-                convert = PhotoImage(file="assets\\base_converter_section\\convert.png")
+                convert = PhotoImage(file=resource_path("convert.png"))
                 convert_label = Label(image=convert, borderwidth=0)
                 convert_label.place(x=175, y=465)
                 real_convert = Button(root, image=convert, borderwidth=0, background="black",
                                       activebackground="black", command=converter)
                 real_convert.place(x=175, y=465)
 
-                button_calculator_icon = PhotoImage(file=f"assets\icons\calculator_icon.png")
+                button_calculator_icon = PhotoImage(file=resource_path(f"calculator_icon.png"))
                 button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"#BC0000")
                 button_calculator_icon_label.place(x=10, y=0)
                 real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -4327,7 +4337,7 @@ def cal_screen():
                                                      activebackground=f"#BC0000", command=cal_screen)
                 real_button_calculator_icon.place(x=10, y=0)
 
-                button_equation_icon = PhotoImage(file=f"assets\icons\equation_icon.png")
+                button_equation_icon = PhotoImage(file=resource_path(f"equation_icon.png"))
                 button_equation_icon_label = Label(image=button_equation_icon, bg=f"#BC0000")
                 button_equation_icon_label.place(x=190, y=3)
                 real_button_equation_icon = Button(root, image=button_equation_icon, borderwidth=0,
@@ -4335,7 +4345,7 @@ def cal_screen():
                                                    activebackground=f"#BC0000", command=equation)
                 real_button_equation_icon.place(x=190, y=3)
 
-                button_integral_icon = PhotoImage(file=f"assets\icons\integral_icon.png")
+                button_integral_icon = PhotoImage(file=resource_path(f"integral_icon.png"))
                 button_integral_icon_label = Label(image=button_integral_icon, bg=f"#BC0000")
                 button_integral_icon_label.place(x=385, y=2)
                 real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0,
@@ -4352,7 +4362,7 @@ def cal_screen():
             button_integral_icon = "integral_icon"
 
             if body_theme_selected == 1:
-                base_converter_screen = PhotoImage(file="assets\\base_converter_section\\to_base_screen_start.png")
+                base_converter_screen = PhotoImage(file=resource_path("to_base_screen_start.png"))
                 base_converter_screen_label = Label(root, image=base_converter_screen)
                 base_converter_screen_label.place(x=-15, y=-7)
                 header_bg_code = "#021A98"
@@ -4361,7 +4371,7 @@ def cal_screen():
 
             if body_theme_selected == 2:
                 base_converter_screen = PhotoImage(
-                    file="assets\\base_converter_section\\to_base_screen_start_to_base_screen_start.png")
+                    file=resource_path("to_base_screen_start_to_base_screen_start.png"))
                 base_converter_screen_label = Label(root, image=base_converter_screen)
                 base_converter_screen_label.place(x=-15, y=-7)
                 header_bg_code = "#8C9802"
@@ -4370,7 +4380,7 @@ def cal_screen():
 
             if body_theme_selected == 3:
                 base_converter_screen = PhotoImage(
-                    file="assets\\base_converter_section\\to_base_screen_start_to_base_screen_start_to_base_screen_start.png")
+                    file=resource_path("to_base_screen_start_to_base_screen_start_to_base_screen_start.png"))
                 base_converter_screen_label = Label(root, image=base_converter_screen)
                 base_converter_screen_label.place(x=-15, y=-7)
                 header_bg_code = "#0A970F"
@@ -4379,266 +4389,266 @@ def cal_screen():
 
             if body_theme_selected == 4:
                 base_converter_screen = PhotoImage(
-                    file="assets\\base_converter_section\\to_base_screen_start_to_base_screen_start_to_base_screen_start_to_base_screen_start.png")
+                    file=resource_path("to_base_screen_start_to_base_screen_start_to_base_screen_start_to_base_screen_start.png"))
                 base_converter_screen_label = Label(root, image=base_converter_screen)
                 base_converter_screen_label.place(x=-15, y=-7)
                 header_bg_code = "#DD6711"
                 background_bg_code = "#313131"
                 b_c_d = "b"
 
-            to_1 = PhotoImage(file=f"assets\\base_converter_section\\1{b_c_d}.png")
+            to_1 = PhotoImage(file=resource_path(f"1{b_c_d}.png"))
             to_1_label = Label(image=to_1, borderwidth=0)
             to_1_label.place(x=0, y=110 + 70)
             real_to_1 = Button(root, image=to_1, borderwidth=0, background=background_bg_code,
                                activebackground=background_bg_code, )
             real_to_1.place(x=0, y=110 + 70)
 
-            to_2 = PhotoImage(file=f"assets\\base_converter_section\\2{b_c_d}.png")
+            to_2 = PhotoImage(file=resource_path(f"2{b_c_d}.png"))
             to_2_label = Label(image=to_2, borderwidth=0)
             to_2_label.place(x=0, y=170 + 70)
             real_to_2 = Button(root, image=to_2, borderwidth=0, background=background_bg_code,
                                activebackground=background_bg_code, command=lambda: to_base_data_getter(2))
             real_to_2.place(x=0, y=170 + 70)
 
-            to_3 = PhotoImage(file=f"assets\\base_converter_section\\3{b_c_d}.png")
+            to_3 = PhotoImage(file=resource_path(f"3{b_c_d}.png"))
             to_3_label = Label(image=to_3, borderwidth=0)
             to_3_label.place(x=0, y=230 + 70)
             real_to_3 = Button(root, image=to_3, borderwidth=0, background=background_bg_code,
                                activebackground=background_bg_code, command=lambda: to_base_data_getter(3))
             real_to_3.place(x=0, y=230 + 70)
 
-            to_4 = PhotoImage(file=f"assets\\base_converter_section\\4{b_c_d}.png")
+            to_4 = PhotoImage(file=resource_path(f"4{b_c_d}.png"))
             to_4_label = Label(image=to_4, borderwidth=0)
             to_4_label.place(x=0, y=290 + 70)
             real_to_4 = Button(root, image=to_4, borderwidth=0, background=background_bg_code,
                                activebackground=background_bg_code, command=lambda: to_base_data_getter(4))
             real_to_4.place(x=0, y=290 + 70)
 
-            to_5 = PhotoImage(file=f"assets\\base_converter_section\\5{b_c_d}.png")
+            to_5 = PhotoImage(file=resource_path(f"5{b_c_d}.png"))
             to_5_label = Label(image=to_5, borderwidth=0)
             to_5_label.place(x=0, y=350 + 70)
             real_to_5 = Button(root, image=to_5, borderwidth=0, background=background_bg_code,
                                activebackground=background_bg_code, command=lambda: to_base_data_getter(5))
             real_to_5.place(x=0, y=350 + 70)
 
-            to_6 = PhotoImage(file=f"assets\\base_converter_section\\6{b_c_d}.png")
+            to_6 = PhotoImage(file=resource_path(f"6{b_c_d}.png"))
             to_6_label = Label(image=to_6, borderwidth=0)
             to_6_label.place(x=0, y=410 + 70)
             real_to_6 = Button(root, image=to_6, borderwidth=0, background=background_bg_code,
                                activebackground=background_bg_code, command=lambda: to_base_data_getter(6))
             real_to_6.place(x=0, y=410 + 70)
 
-            to_7 = PhotoImage(file=f"assets\\base_converter_section\\7{b_c_d}.png")
+            to_7 = PhotoImage(file=resource_path(f"7{b_c_d}.png"))
             to_7_label = Label(image=to_7, borderwidth=0)
             to_7_label.place(x=80, y=110 + 70)
             real_to_7 = Button(root, image=to_7, borderwidth=0, background=background_bg_code,
                                activebackground=background_bg_code, command=lambda: to_base_data_getter(7))
             real_to_7.place(x=80, y=110 + 70)
 
-            to_8 = PhotoImage(file=f"assets\\base_converter_section\\8{b_c_d}.png")
+            to_8 = PhotoImage(file=resource_path(f"8{b_c_d}.png"))
             to_8_label = Label(image=to_8, borderwidth=0)
             to_8_label.place(x=80, y=170 + 70)
             real_to_8 = Button(root, image=to_8, borderwidth=0, background=background_bg_code,
                                activebackground=background_bg_code, command=lambda: to_base_data_getter(8))
             real_to_8.place(x=80, y=170 + 70)
 
-            to_9 = PhotoImage(file=f"assets\\base_converter_section\\9{b_c_d}.png")
+            to_9 = PhotoImage(file=resource_path(f"9{b_c_d}.png"))
             to_9_label = Label(image=to_9, borderwidth=0)
             to_9_label.place(x=80, y=230 + 70)
             real_to_9 = Button(root, image=to_9, borderwidth=0, background=background_bg_code,
                                activebackground=background_bg_code, command=lambda: to_base_data_getter(9))
             real_to_9.place(x=80, y=230 + 70)
 
-            to_10 = PhotoImage(file=f"assets\\base_converter_section\\10{b_c_d}.png")
+            to_10 = PhotoImage(file=resource_path(f"10{b_c_d}.png"))
             to_10_label = Label(image=to_10, borderwidth=0)
             to_10_label.place(x=80, y=290 + 70)
             real_to_10 = Button(root, image=to_10, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(10))
             real_to_10.place(x=80, y=290 + 70)
 
-            to_11 = PhotoImage(file=f"assets\\base_converter_section\\11{b_c_d}.png")
+            to_11 = PhotoImage(file=resource_path(f"11{b_c_d}.png"))
             to_11_label = Label(image=to_11, borderwidth=0)
             to_11_label.place(x=80, y=350 + 70)
             real_to_11 = Button(root, image=to_11, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(11))
             real_to_11.place(x=80, y=350 + 70)
 
-            to_12 = PhotoImage(file=f"assets\\base_converter_section\\12{b_c_d}.png")
+            to_12 = PhotoImage(file=resource_path(f"12{b_c_d}.png"))
             to_12_label = Label(image=to_12, borderwidth=0)
             to_12_label.place(x=80, y=410 + 70)
             real_to_12 = Button(root, image=to_12, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(12))
             real_to_12.place(x=80, y=410 + 70)
 
-            to_13 = PhotoImage(file=f"assets\\base_converter_section\\13{b_c_d}.png")
+            to_13 = PhotoImage(file=resource_path(f"13{b_c_d}.png"))
             to_13_label = Label(image=to_13, borderwidth=0)
             to_13_label.place(x=160, y=110 + 70)
             real_to_13 = Button(root, image=to_13, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(13))
             real_to_13.place(x=160, y=110 + 70)
 
-            to_14 = PhotoImage(file=f"assets\\base_converter_section\\14{b_c_d}.png")
+            to_14 = PhotoImage(file=resource_path(f"14{b_c_d}.png"))
             to_14_label = Label(image=to_14, borderwidth=0)
             to_14_label.place(x=160, y=170 + 70)
             real_to_14 = Button(root, image=to_14, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(14))
             real_to_14.place(x=160, y=170 + 70)
 
-            to_15 = PhotoImage(file=f"assets\\base_converter_section\\15{b_c_d}.png")
+            to_15 = PhotoImage(file=resource_path(f"15{b_c_d}.png"))
             to_15_label = Label(image=to_15, borderwidth=0)
             to_15_label.place(x=160, y=230 + 70)
             real_to_15 = Button(root, image=to_15, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(15))
             real_to_15.place(x=160, y=230 + 70)
 
-            to_16 = PhotoImage(file=f"assets\\base_converter_section\\16{b_c_d}.png")
+            to_16 = PhotoImage(file=resource_path(f"16{b_c_d}.png"))
             to_16_label = Label(image=to_16, borderwidth=0)
             to_16_label.place(x=160, y=290 + 70)
             real_to_16 = Button(root, image=to_16, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(16))
             real_to_16.place(x=160, y=290 + 70)
 
-            to_17 = PhotoImage(file=f"assets\\base_converter_section\\17{b_c_d}.png")
+            to_17 = PhotoImage(file=resource_path(f"17{b_c_d}.png"))
             to_17_label = Label(image=to_17, borderwidth=0)
             to_17_label.place(x=160, y=350 + 70)
             real_to_17 = Button(root, image=to_17, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(17))
             real_to_17.place(x=160, y=350 + 70)
 
-            to_18 = PhotoImage(file=f"assets\\base_converter_section\\18{b_c_d}.png")
+            to_18 = PhotoImage(file=resource_path(f"18{b_c_d}.png"))
             to_18_label = Label(image=to_18, borderwidth=0)
             to_18_label.place(x=160, y=410 + 70)
             real_to_18 = Button(root, image=to_18, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(18))
             real_to_18.place(x=160, y=410 + 70)
 
-            to_19 = PhotoImage(file=f"assets\\base_converter_section\\19{b_c_d}.png")
+            to_19 = PhotoImage(file=resource_path(f"19{b_c_d}.png"))
             to_19_label = Label(image=to_19, borderwidth=0)
             to_19_label.place(x=240, y=110 + 70)
             real_to_19 = Button(root, image=to_19, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(19))
             real_to_19.place(x=240, y=110 + 70)
 
-            to_20 = PhotoImage(file=f"assets\\base_converter_section\\20{b_c_d}.png")
+            to_20 = PhotoImage(file=resource_path(f"20{b_c_d}.png"))
             to_20_label = Label(image=to_20, borderwidth=0)
             to_20_label.place(x=240, y=170 + 70)
             real_to_20 = Button(root, image=to_20, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(20))
             real_to_20.place(x=240, y=170 + 70)
 
-            to_21 = PhotoImage(file=f"assets\\base_converter_section\\21{b_c_d}.png")
+            to_21 = PhotoImage(file=resource_path(f"21{b_c_d}.png"))
             to_21_label = Label(image=to_21, borderwidth=0)
             to_21_label.place(x=240, y=230 + 70)
             real_to_21 = Button(root, image=to_21, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(21))
             real_to_21.place(x=240, y=230 + 70)
 
-            to_22 = PhotoImage(file=f"assets\\base_converter_section\\22{b_c_d}.png")
+            to_22 = PhotoImage(file=resource_path(f"22{b_c_d}.png"))
             to_22_label = Label(image=to_22, borderwidth=0)
             to_22_label.place(x=240, y=290 + 70)
             real_to_22 = Button(root, image=to_22, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(22))
             real_to_22.place(x=240, y=290 + 70)
 
-            to_23 = PhotoImage(file=f"assets\\base_converter_section\\23{b_c_d}.png")
+            to_23 = PhotoImage(file=resource_path(f"23{b_c_d}.png"))
             to_23_label = Label(image=to_23, borderwidth=0)
             to_23_label.place(x=240, y=350 + 70)
             real_to_23 = Button(root, image=to_23, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(23))
             real_to_23.place(x=240, y=350 + 70)
 
-            to_24 = PhotoImage(file=f"assets\\base_converter_section\\24{b_c_d}.png")
+            to_24 = PhotoImage(file=resource_path(f"24{b_c_d}.png"))
             to_24_label = Label(image=to_24, borderwidth=0)
             to_24_label.place(x=240, y=410 + 70)
             real_to_24 = Button(root, image=to_24, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(24))
             real_to_24.place(x=240, y=410 + 70)
 
-            to_25 = PhotoImage(file=f"assets\\base_converter_section\\25{b_c_d}.png")
+            to_25 = PhotoImage(file=resource_path(f"25{b_c_d}.png"))
             to_25_label = Label(image=to_25, borderwidth=0)
             to_25_label.place(x=320, y=110 + 70)
             real_to_25 = Button(root, image=to_25, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(25))
             real_to_25.place(x=320, y=110 + 70)
 
-            to_26 = PhotoImage(file=f"assets\\base_converter_section\\26{b_c_d}.png")
+            to_26 = PhotoImage(file=resource_path(f"26{b_c_d}.png"))
             to_26_label = Label(image=to_26, borderwidth=0)
             to_26_label.place(x=320, y=170 + 70)
             real_to_26 = Button(root, image=to_26, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(26))
             real_to_26.place(x=320, y=170 + 70)
 
-            to_27 = PhotoImage(file=f"assets\\base_converter_section\\27{b_c_d}.png")
+            to_27 = PhotoImage(file=resource_path(f"27{b_c_d}.png"))
             to_27_label = Label(image=to_27, borderwidth=0)
             to_27_label.place(x=320, y=230 + 70)
             real_to_27 = Button(root, image=to_27, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(27))
             real_to_27.place(x=320, y=230 + 70)
 
-            to_28 = PhotoImage(file=f"assets\\base_converter_section\\28{b_c_d}.png")
+            to_28 = PhotoImage(file=resource_path(f"28{b_c_d}.png"))
             to_28_label = Label(image=to_28, borderwidth=0)
             to_28_label.place(x=320, y=290 + 70)
             real_to_28 = Button(root, image=to_28, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(28))
             real_to_28.place(x=320, y=290 + 70)
 
-            to_29 = PhotoImage(file=f"assets\\base_converter_section\\29{b_c_d}.png")
+            to_29 = PhotoImage(file=resource_path(f"29{b_c_d}.png"))
             to_29_label = Label(image=to_29, borderwidth=0)
             to_29_label.place(x=320, y=350 + 70)
             real_to_29 = Button(root, image=to_29, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(29))
             real_to_29.place(x=320, y=350 + 70)
 
-            to_30 = PhotoImage(file=f"assets\\base_converter_section\\30{b_c_d}.png")
+            to_30 = PhotoImage(file=resource_path(f"30{b_c_d}.png"))
             to_30_label = Label(image=to_30, borderwidth=0)
             to_30_label.place(x=320, y=410 + 70)
             real_to_30 = Button(root, image=to_30, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(30))
             real_to_30.place(x=320, y=410 + 70)
 
-            to_31 = PhotoImage(file=f"assets\\base_converter_section\\31{b_c_d}.png")
+            to_31 = PhotoImage(file=resource_path(f"31{b_c_d}.png"))
             to_31_label = Label(image=to_31, borderwidth=0)
             to_31_label.place(x=400, y=110 + 70)
             real_to_31 = Button(root, image=to_31, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(31))
             real_to_31.place(x=400, y=110 + 70)
 
-            to_32 = PhotoImage(file=f"assets\\base_converter_section\\32{b_c_d}.png")
+            to_32 = PhotoImage(file=resource_path(f"32{b_c_d}.png"))
             to_32_label = Label(image=to_32, borderwidth=0)
             to_32_label.place(x=400, y=170 + 70)
             real_to_32 = Button(root, image=to_32, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(32))
             real_to_32.place(x=400, y=170 + 70)
 
-            to_33 = PhotoImage(file=f"assets\\base_converter_section\\33{b_c_d}.png")
+            to_33 = PhotoImage(file=resource_path(f"33{b_c_d}.png"))
             to_33_label = Label(image=to_33, borderwidth=0)
             to_33_label.place(x=400, y=230 + 70)
             real_to_33 = Button(root, image=to_33, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(33))
             real_to_33.place(x=400, y=230 + 70)
 
-            to_34 = PhotoImage(file=f"assets\\base_converter_section\\34{b_c_d}.png")
+            to_34 = PhotoImage(file=resource_path(f"34{b_c_d}.png"))
             to_34_label = Label(image=to_34, borderwidth=0)
             to_34_label.place(x=400, y=290 + 70)
             real_to_34 = Button(root, image=to_34, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(34))
             real_to_34.place(x=400, y=290 + 70)
 
-            to_35 = PhotoImage(file=f"assets\\base_converter_section\\35{b_c_d}.png")
+            to_35 = PhotoImage(file=resource_path(f"35{b_c_d}.png"))
             to_35_label = Label(image=to_35, borderwidth=0)
             to_35_label.place(x=400, y=350 + 70)
             real_to_35 = Button(root, image=to_35, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(35))
             real_to_35.place(x=400, y=350 + 70)
 
-            to_36 = PhotoImage(file=f"assets\\base_converter_section\\36{b_c_d}.png")
+            to_36 = PhotoImage(file=resource_path(f"36{b_c_d}.png"))
             to_36_label = Label(image=to_36, borderwidth=0)
             to_36_label.place(x=400, y=410 + 70)
             real_to_36 = Button(root, image=to_36, borderwidth=0, background=background_bg_code,
                                 activebackground=background_bg_code, command=lambda: to_base_data_getter(36))
             real_to_36.place(x=400, y=410 + 70)
 
-            button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+            button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
             button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
             button_calculator_icon_label.place(x=10, y=0)
             real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0,
@@ -4646,14 +4656,14 @@ def cal_screen():
                                                  activebackground=f"{header_bg_code}", command=cal_screen)
             real_button_calculator_icon.place(x=10, y=0)
 
-            button_equation_icon = PhotoImage(file=f"assets\icons\{button_equation_icon}.png")
+            button_equation_icon = PhotoImage(file=resource_path(f"{button_equation_icon}.png"))
             button_equation_icon_label = Label(image=button_equation_icon, bg=f"{header_bg_code}")
             button_equation_icon_label.place(x=190, y=3)
             real_button_equation_icon = Button(root, image=button_equation_icon, borderwidth=0, bg=f"{header_bg_code}",
                                                activebackground=f"{header_bg_code}", command=equation)
             real_button_equation_icon.place(x=190, y=3)
 
-            button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+            button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
             button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
             button_integral_icon_label.place(x=385, y=2)
             real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0, bg=f"{header_bg_code}",
@@ -4669,7 +4679,7 @@ def cal_screen():
         button_integral_icon = "integral_icon"
 
         if body_theme_selected == 1:
-            base_converter_screen = PhotoImage(file="assets\\base_converter_section\\from_base_screen_start.png")
+            base_converter_screen = PhotoImage(file=resource_path("from_base_screen_start.png"))
             base_converter_screen_label = Label(root, image=base_converter_screen)
             base_converter_screen_label.place(x=-15, y=-7)
             header_bg_code = "#021A98"
@@ -4678,7 +4688,7 @@ def cal_screen():
 
         if body_theme_selected == 2:
             base_converter_screen = PhotoImage(
-                file="assets\\base_converter_section\\from_base_screen_start_from_base_screen_start.png")
+                file=resource_path("from_base_screen_start_from_base_screen_start.png"))
             base_converter_screen_label = Label(root, image=base_converter_screen)
             base_converter_screen_label.place(x=-15, y=-7)
             header_bg_code = "#8C9802"
@@ -4687,7 +4697,7 @@ def cal_screen():
 
         if body_theme_selected == 3:
             base_converter_screen = PhotoImage(
-                file="assets\\base_converter_section\\from_base_screen_start_from_base_screen_start_from_base_screen_start.png")
+                file=resource_path("from_base_screen_start_from_base_screen_start_from_base_screen_start.png"))
             base_converter_screen_label = Label(root, image=base_converter_screen)
             base_converter_screen_label.place(x=-15, y=-7)
             header_bg_code = "#0A970F"
@@ -4696,280 +4706,280 @@ def cal_screen():
 
         if body_theme_selected == 4:
             base_converter_screen = PhotoImage(
-                file="assets\\base_converter_section\\from_base_screen_start_from_base_screen_start_from_base_screen_start_from_base_screen_start.png")
+                file=resource_path("from_base_screen_start_from_base_screen_start_from_base_screen_start_from_base_screen_start.png"))
             base_converter_screen_label = Label(root, image=base_converter_screen)
             base_converter_screen_label.place(x=-15, y=-7)
             header_bg_code = "#DD6711"
             background_bg_code = "#313131"
             b_c_d = "b"
 
-        from_1 = PhotoImage(file=f"assets\\base_converter_section\\1{b_c_d}.png")
+        from_1 = PhotoImage(file=resource_path(f"1{b_c_d}.png"))
         from_1_label = Label(image=from_1, borderwidth=0)
         from_1_label.place(x=0, y=110 + 70)
         real_from_1 = Button(root, image=from_1, borderwidth=0, background=background_bg_code,
                              activebackground=background_bg_code)
         real_from_1.place(x=0, y=110 + 70)
 
-        from_2 = PhotoImage(file=f"assets\\base_converter_section\\2{b_c_d}.png")
+        from_2 = PhotoImage(file=resource_path(f"2{b_c_d}.png"))
         from_2_label = Label(image=from_2, borderwidth=0)
         from_2_label.place(x=0, y=170 + 70)
         real_from_2 = Button(root, image=from_2, borderwidth=0, background=background_bg_code,
                              activebackground=background_bg_code, command=lambda: from_base_data_getter(2))
         real_from_2.place(x=0, y=170 + 70)
 
-        from_3 = PhotoImage(file=f"assets\\base_converter_section\\3{b_c_d}.png")
+        from_3 = PhotoImage(file=resource_path(f"3{b_c_d}.png"))
         from_3_label = Label(image=from_3, borderwidth=0)
         from_3_label.place(x=0, y=230 + 70)
         real_from_3 = Button(root, image=from_3, borderwidth=0, background=background_bg_code,
                              activebackground=background_bg_code, command=lambda: from_base_data_getter(3))
         real_from_3.place(x=0, y=230 + 70)
 
-        from_4 = PhotoImage(file=f"assets\\base_converter_section\\4{b_c_d}.png")
+        from_4 = PhotoImage(file=resource_path(f"4{b_c_d}.png"))
         from_4_label = Label(image=from_4, borderwidth=0)
         from_4_label.place(x=0, y=290 + 70)
         real_from_4 = Button(root, image=from_4, borderwidth=0, background=background_bg_code,
                              activebackground=background_bg_code, command=lambda: from_base_data_getter(4))
         real_from_4.place(x=0, y=290 + 70)
 
-        from_5 = PhotoImage(file=f"assets\\base_converter_section\\5{b_c_d}.png")
+        from_5 = PhotoImage(file=resource_path(f"5{b_c_d}.png"))
         from_5_label = Label(image=from_5, borderwidth=0)
         from_5_label.place(x=0, y=350 + 70)
         real_from_5 = Button(root, image=from_5, borderwidth=0, background=background_bg_code,
                              activebackground=background_bg_code, command=lambda: from_base_data_getter(5))
         real_from_5.place(x=0, y=350 + 70)
 
-        from_6 = PhotoImage(file=f"assets\\base_converter_section\\6{b_c_d}.png")
+        from_6 = PhotoImage(file=resource_path(f"6{b_c_d}.png"))
         from_6_label = Label(image=from_6, borderwidth=0)
         from_6_label.place(x=0, y=410 + 70)
         real_from_6 = Button(root, image=from_6, borderwidth=0, background=background_bg_code,
                              activebackground=background_bg_code, command=lambda: from_base_data_getter(6))
         real_from_6.place(x=0, y=410 + 70)
 
-        from_7 = PhotoImage(file=f"assets\\base_converter_section\\7{b_c_d}.png")
+        from_7 = PhotoImage(file=resource_path(f"7{b_c_d}.png"))
         from_7_label = Label(image=from_7, borderwidth=0)
         from_7_label.place(x=80, y=110 + 70)
         real_from_7 = Button(root, image=from_7, borderwidth=0, background=background_bg_code,
                              activebackground=background_bg_code, command=lambda: from_base_data_getter(7))
         real_from_7.place(x=80, y=110 + 70)
 
-        from_8 = PhotoImage(file=f"assets\\base_converter_section\\8{b_c_d}.png")
+        from_8 = PhotoImage(file=resource_path(f"8{b_c_d}.png"))
         from_8_label = Label(image=from_8, borderwidth=0)
         from_8_label.place(x=80, y=170 + 70)
         real_from_8 = Button(root, image=from_8, borderwidth=0, background=background_bg_code,
                              activebackground=background_bg_code, command=lambda: from_base_data_getter(8))
         real_from_8.place(x=80, y=170 + 70)
 
-        from_9 = PhotoImage(file=f"assets\\base_converter_section\\9{b_c_d}.png")
+        from_9 = PhotoImage(file=resource_path(f"9{b_c_d}.png"))
         from_9_label = Label(image=from_9, borderwidth=0)
         from_9_label.place(x=80, y=230 + 70)
         real_from_9 = Button(root, image=from_9, borderwidth=0, background=background_bg_code,
                              activebackground=background_bg_code, command=lambda: from_base_data_getter(9))
         real_from_9.place(x=80, y=230 + 70)
 
-        from_10 = PhotoImage(file=f"assets\\base_converter_section\\10{b_c_d}.png")
+        from_10 = PhotoImage(file=resource_path(f"10{b_c_d}.png"))
         from_10_label = Label(image=from_10, borderwidth=0)
         from_10_label.place(x=80, y=290 + 70)
         real_from_10 = Button(root, image=from_10, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(10))
         real_from_10.place(x=80, y=290 + 70)
 
-        from_11 = PhotoImage(file=f"assets\\base_converter_section\\11{b_c_d}.png")
+        from_11 = PhotoImage(file=resource_path(f"11{b_c_d}.png"))
         from_11_label = Label(image=from_11, borderwidth=0)
         from_11_label.place(x=80, y=350 + 70)
         real_from_11 = Button(root, image=from_11, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(11))
         real_from_11.place(x=80, y=350 + 70)
 
-        from_12 = PhotoImage(file=f"assets\\base_converter_section\\12{b_c_d}.png")
+        from_12 = PhotoImage(file=resource_path(f"12{b_c_d}.png"))
         from_12_label = Label(image=from_12, borderwidth=0)
         from_12_label.place(x=80, y=410 + 70)
         real_from_12 = Button(root, image=from_12, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(12))
         real_from_12.place(x=80, y=410 + 70)
 
-        from_13 = PhotoImage(file=f"assets\\base_converter_section\\13{b_c_d}.png")
+        from_13 = PhotoImage(file=resource_path(f"13{b_c_d}.png"))
         from_13_label = Label(image=from_13, borderwidth=0)
         from_13_label.place(x=160, y=110 + 70)
         real_from_13 = Button(root, image=from_13, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(13))
         real_from_13.place(x=160, y=110 + 70)
 
-        from_14 = PhotoImage(file=f"assets\\base_converter_section\\14{b_c_d}.png")
+        from_14 = PhotoImage(file=resource_path(f"14{b_c_d}.png"))
         from_14_label = Label(image=from_14, borderwidth=0)
         from_14_label.place(x=160, y=170 + 70)
         real_from_14 = Button(root, image=from_14, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(14))
         real_from_14.place(x=160, y=170 + 70)
 
-        from_15 = PhotoImage(file=f"assets\\base_converter_section\\15{b_c_d}.png")
+        from_15 = PhotoImage(file=resource_path(f"15{b_c_d}.png"))
         from_15_label = Label(image=from_15, borderwidth=0)
         from_15_label.place(x=160, y=230 + 70)
         real_from_15 = Button(root, image=from_15, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(15))
         real_from_15.place(x=160, y=230 + 70)
 
-        from_16 = PhotoImage(file=f"assets\\base_converter_section\\16{b_c_d}.png")
+        from_16 = PhotoImage(file=resource_path(f"16{b_c_d}.png"))
         from_16_label = Label(image=from_16, borderwidth=0)
         from_16_label.place(x=160, y=290 + 70)
         real_from_16 = Button(root, image=from_16, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(16))
         real_from_16.place(x=160, y=290 + 70)
 
-        from_17 = PhotoImage(file=f"assets\\base_converter_section\\17{b_c_d}.png")
+        from_17 = PhotoImage(file=resource_path(f"17{b_c_d}.png"))
         from_17_label = Label(image=from_17, borderwidth=0)
         from_17_label.place(x=160, y=350 + 70)
         real_from_17 = Button(root, image=from_17, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(17))
         real_from_17.place(x=160, y=350 + 70)
 
-        from_18 = PhotoImage(file=f"assets\\base_converter_section\\18{b_c_d}.png")
+        from_18 = PhotoImage(file=resource_path(f"18{b_c_d}.png"))
         from_18_label = Label(image=from_18, borderwidth=0)
         from_18_label.place(x=160, y=410 + 70)
         real_from_18 = Button(root, image=from_18, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(18))
         real_from_18.place(x=160, y=410 + 70)
 
-        from_19 = PhotoImage(file=f"assets\\base_converter_section\\19{b_c_d}.png")
+        from_19 = PhotoImage(file=resource_path(f"19{b_c_d}.png"))
         from_19_label = Label(image=from_19, borderwidth=0)
         from_19_label.place(x=240, y=110 + 70)
         real_from_19 = Button(root, image=from_19, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(19))
         real_from_19.place(x=240, y=110 + 70)
 
-        from_20 = PhotoImage(file=f"assets\\base_converter_section\\20{b_c_d}.png")
+        from_20 = PhotoImage(file=resource_path(f"20{b_c_d}.png"))
         from_20_label = Label(image=from_20, borderwidth=0)
         from_20_label.place(x=240, y=170 + 70)
         real_from_20 = Button(root, image=from_20, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(20))
         real_from_20.place(x=240, y=170 + 70)
 
-        from_21 = PhotoImage(file=f"assets\\base_converter_section\\21{b_c_d}.png")
+        from_21 = PhotoImage(file=resource_path(f"21{b_c_d}.png"))
         from_21_label = Label(image=from_21, borderwidth=0)
         from_21_label.place(x=240, y=230 + 70)
         real_from_21 = Button(root, image=from_21, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(21))
         real_from_21.place(x=240, y=230 + 70)
 
-        from_22 = PhotoImage(file=f"assets\\base_converter_section\\22{b_c_d}.png")
+        from_22 = PhotoImage(file=resource_path(f"22{b_c_d}.png"))
         from_22_label = Label(image=from_22, borderwidth=0)
         from_22_label.place(x=240, y=290 + 70)
         real_from_22 = Button(root, image=from_22, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(22))
         real_from_22.place(x=240, y=290 + 70)
 
-        from_23 = PhotoImage(file=f"assets\\base_converter_section\\23{b_c_d}.png")
+        from_23 = PhotoImage(file=resource_path(f"23{b_c_d}.png"))
         from_23_label = Label(image=from_23, borderwidth=0)
         from_23_label.place(x=240, y=350 + 70)
         real_from_23 = Button(root, image=from_23, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(23))
         real_from_23.place(x=240, y=350 + 70)
 
-        from_24 = PhotoImage(file=f"assets\\base_converter_section\\24{b_c_d}.png")
+        from_24 = PhotoImage(file=resource_path(f"24{b_c_d}.png"))
         from_24_label = Label(image=from_24, borderwidth=0)
         from_24_label.place(x=240, y=410 + 70)
         real_from_24 = Button(root, image=from_24, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(24))
         real_from_24.place(x=240, y=410 + 70)
 
-        from_25 = PhotoImage(file=f"assets\\base_converter_section\\25{b_c_d}.png")
+        from_25 = PhotoImage(file=resource_path(f"25{b_c_d}.png"))
         from_25_label = Label(image=from_25, borderwidth=0)
         from_25_label.place(x=320, y=110 + 70)
         real_from_25 = Button(root, image=from_25, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(25))
         real_from_25.place(x=320, y=110 + 70)
 
-        from_26 = PhotoImage(file=f"assets\\base_converter_section\\26{b_c_d}.png")
+        from_26 = PhotoImage(file=resource_path(f"26{b_c_d}.png"))
         from_26_label = Label(image=from_26, borderwidth=0)
         from_26_label.place(x=320, y=170 + 70)
         real_from_26 = Button(root, image=from_26, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(26))
         real_from_26.place(x=320, y=170 + 70)
 
-        from_27 = PhotoImage(file=f"assets\\base_converter_section\\27{b_c_d}.png")
+        from_27 = PhotoImage(file=resource_path(f"27{b_c_d}.png"))
         from_27_label = Label(image=from_27, borderwidth=0)
         from_27_label.place(x=320, y=230 + 70)
         real_from_27 = Button(root, image=from_27, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(27))
         real_from_27.place(x=320, y=230 + 70)
 
-        from_28 = PhotoImage(file=f"assets\\base_converter_section\\28{b_c_d}.png")
+        from_28 = PhotoImage(file=resource_path(f"28{b_c_d}.png"))
         from_28_label = Label(image=from_28, borderwidth=0)
         from_28_label.place(x=320, y=290 + 70)
         real_from_28 = Button(root, image=from_28, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(28))
         real_from_28.place(x=320, y=290 + 70)
 
-        from_29 = PhotoImage(file=f"assets\\base_converter_section\\29{b_c_d}.png")
+        from_29 = PhotoImage(file=resource_path(f"29{b_c_d}.png"))
         from_29_label = Label(image=from_29, borderwidth=0)
         from_29_label.place(x=320, y=350 + 70)
         real_from_29 = Button(root, image=from_29, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(29))
         real_from_29.place(x=320, y=350 + 70)
 
-        from_30 = PhotoImage(file=f"assets\\base_converter_section\\30{b_c_d}.png")
+        from_30 = PhotoImage(file=resource_path(f"30{b_c_d}.png"))
         from_30_label = Label(image=from_30, borderwidth=0)
         from_30_label.place(x=320, y=410 + 70)
         real_from_30 = Button(root, image=from_30, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(30))
         real_from_30.place(x=320, y=410 + 70)
 
-        from_31 = PhotoImage(file=f"assets\\base_converter_section\\31{b_c_d}.png")
+        from_31 = PhotoImage(file=resource_path(f"31{b_c_d}.png"))
         from_31_label = Label(image=from_31, borderwidth=0)
         from_31_label.place(x=400, y=110 + 70)
         real_from_31 = Button(root, image=from_31, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(31))
         real_from_31.place(x=400, y=110 + 70)
 
-        from_32 = PhotoImage(file=f"assets\\base_converter_section\\32{b_c_d}.png")
+        from_32 = PhotoImage(file=resource_path(f"32{b_c_d}.png"))
         from_32_label = Label(image=from_32, borderwidth=0)
         from_32_label.place(x=400, y=170 + 70)
         real_from_32 = Button(root, image=from_32, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(32))
         real_from_32.place(x=400, y=170 + 70)
 
-        from_33 = PhotoImage(file=f"assets\\base_converter_section\\33{b_c_d}.png")
+        from_33 = PhotoImage(file=resource_path(f"33{b_c_d}.png"))
         from_33_label = Label(image=from_33, borderwidth=0)
         from_33_label.place(x=400, y=230 + 70)
         real_from_33 = Button(root, image=from_33, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(33))
         real_from_33.place(x=400, y=230 + 70)
 
-        from_34 = PhotoImage(file=f"assets\\base_converter_section\\34{b_c_d}.png")
+        from_34 = PhotoImage(file=resource_path(f"34{b_c_d}.png"))
         from_34_label = Label(image=from_34, borderwidth=0)
         from_34_label.place(x=400, y=290 + 70)
         real_from_34 = Button(root, image=from_34, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(34))
         real_from_34.place(x=400, y=290 + 70)
 
-        from_35 = PhotoImage(file=f"assets\\base_converter_section\\35{b_c_d}.png")
+        from_35 = PhotoImage(file=resource_path(f"35{b_c_d}.png"))
         from_35_label = Label(image=from_35, borderwidth=0)
         from_35_label.place(x=400, y=350 + 70)
         real_from_35 = Button(root, image=from_35, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(35))
         real_from_35.place(x=400, y=350 + 70)
 
-        from_36 = PhotoImage(file=f"assets\\base_converter_section\\36{b_c_d}.png")
+        from_36 = PhotoImage(file=resource_path(f"36{b_c_d}.png"))
         from_36_label = Label(image=from_36, borderwidth=0)
         from_36_label.place(x=400, y=410 + 70)
         real_from_36 = Button(root, image=from_36, borderwidth=0, background=background_bg_code,
                               activebackground=background_bg_code, command=lambda: from_base_data_getter(36))
         real_from_36.place(x=400, y=410 + 70)
 
-        button_calculator_icon = PhotoImage(file=f"assets\icons\{button_calculator_icon}.png")
+        button_calculator_icon = PhotoImage(file=resource_path(f"{button_calculator_icon}.png"))
         button_calculator_icon_label = Label(image=button_calculator_icon, bg=f"{header_bg_code}")
         button_calculator_icon_label.place(x=10, y=0)
         real_button_calculator_icon = Button(root, image=button_calculator_icon, borderwidth=0, bg=f"{header_bg_code}",
                                              activebackground=f"{header_bg_code}", command=cal_screen)
         real_button_calculator_icon.place(x=10, y=0)
 
-        button_equation_icon = PhotoImage(file=f"assets\icons\{button_equation_icon}.png")
+        button_equation_icon = PhotoImage(file=resource_path(f"{button_equation_icon}.png"))
         button_equation_icon_label = Label(image=button_equation_icon, bg=f"{header_bg_code}")
         button_equation_icon_label.place(x=190, y=3)
         real_button_equation_icon = Button(root, image=button_equation_icon, borderwidth=0, bg=f"{header_bg_code}",
                                            activebackground=f"{header_bg_code}", command=equation)
         real_button_equation_icon.place(x=190, y=3)
 
-        button_integral_icon = PhotoImage(file=f"assets\icons\{button_integral_icon}.png")
+        button_integral_icon = PhotoImage(file=resource_path(f"{button_integral_icon}.png"))
         button_integral_icon_label = Label(image=button_integral_icon, bg=f"{header_bg_code}")
         button_integral_icon_label.place(x=385, y=2)
         real_button_integral_icon = Button(root, image=button_integral_icon, borderwidth=0, bg=f"{header_bg_code}",
@@ -4983,48 +4993,48 @@ def cal_screen():
     body_theme_selected = random.choice(body_theme_selector)
 
     if body_theme_selected == 1:
-        bg = PhotoImage(file="assets\\calculator_section\\body.png")
+        bg = PhotoImage(file=resource_path("body.png"))
         bg_label = Label(root, image=bg)
         bg_label.place(x=-12, y=-24)
         header_bg_code = "#8E1111"
         background_bg_code = "#232323"
 
     if body_theme_selected == 2:
-        bg = PhotoImage(file="assets\\calculator_section\\bodybody.png")
+        bg = PhotoImage(file=resource_path("bodybody.png"))
         bg_label = Label(root, image=bg)
         bg_label.place(x=-12, y=-24)
         header_bg_code = "#65872D"
         background_bg_code = "#341030"
 
     if body_theme_selected == 3:
-        bg = PhotoImage(file="assets\\calculator_section\\bodybodybody.png")
+        bg = PhotoImage(file=resource_path("bodybodybody.png"))
         bg_label = Label(root, image=bg)
         bg_label.place(x=-12, y=-24)
         header_bg_code = "#A71F58"
         background_bg_code = "#0D093A"
 
     if body_theme_selected == 4:
-        bg = PhotoImage(file="assets\\calculator_section\\bodybodybodybody.png")
+        bg = PhotoImage(file=resource_path("bodybodybodybody.png"))
         bg_label = Label(root, image=bg)
         bg_label.place(x=-10, y=-24)
         header_bg_code = "#2D5187"
         background_bg_code = "#320E0E"
 
-    button_equation_icon = PhotoImage(file="assets\icons\equation_icon.png")
+    button_equation_icon = PhotoImage(file=resource_path("equation_icon.png"))
     button_equation_icon_label = Label(image=button_equation_icon, background=header_bg_code)
     button_equation_icon_label.place(x=10, y=3)
     real_button_equation_icon = Button(root, image=button_equation_icon, background=header_bg_code,
                                        activebackground=header_bg_code, borderwidth=0, command=equation)
     real_button_equation_icon.place(x=10, y=3)
 
-    button_base_converter_icon = PhotoImage(file="assets\\icons\\base_converter_icon.png")
+    button_base_converter_icon = PhotoImage(file=resource_path("base_converter_icon.png"))
     button_base_converter_icon_label = Label(image=button_base_converter_icon, background=header_bg_code)
     button_base_converter_icon_label.place(x=170, y=2)
     real_button_base_converter_icon = Button(root, image=button_base_converter_icon, background=header_bg_code,
                                              activebackground=header_bg_code, borderwidth=0, command=base_converter)
     real_button_base_converter_icon.place(x=170, y=2)
 
-    button_integral_icon = PhotoImage(file="assets\\icons\\integral_icon.png")
+    button_integral_icon = PhotoImage(file=resource_path("integral_icon.png"))
     button_integral_icon_label = Label(image=button_integral_icon, background=header_bg_code)
     button_integral_icon_label.place(x=370, y=2)
     real_button_integral_icon = Button(root, image=button_integral_icon, background=header_bg_code,
@@ -6569,126 +6579,126 @@ def cal_screen():
 
                     e.insert(END, final_answer)
 
-    button_sin = PhotoImage(file=f"assets\calculator_section\{button_sin}.png")
+    button_sin = PhotoImage(file=resource_path(f"{button_sin}.png"))
     button_sin_label = Label(image=button_sin, bg=f"{background_bg_code}")
     button_sin_label.place(x=0, y=490)
     real_button_sin = Button(root, text="1", image=button_sin, borderwidth=0, bg=f"{background_bg_code}",
                              activebackground=f"{background_bg_code}", command=lambda: button_click("sin("))
     real_button_sin.place(x=0, y=490)
 
-    button_cos = PhotoImage(file=f"assets\calculator_section\{button_cos}.png")
+    button_cos = PhotoImage(file=resource_path(f"{button_cos}.png"))
     button_cos_label = Label(image=button_cos, bg=f"{background_bg_code}")
     button_cos_label.place(x=0, y=430)
     real_button_cos = Button(root, text="1", image=button_cos, borderwidth=0, bg=f"{background_bg_code}",
                              activebackground=f"{background_bg_code}", command=lambda: button_click("cos("))
     real_button_cos.place(x=0, y=430)
 
-    button_tan = PhotoImage(file=f"assets\calculator_section\{button_tan}.png")
+    button_tan = PhotoImage(file=resource_path(f"{button_tan}.png"))
     button_tan_label = Label(image=button_tan, bg=f"{background_bg_code}")
     button_tan_label.place(x=0, y=370)
     real_button_tan = Button(root, text="tan(", image=button_tan, borderwidth=0, bg=f"{background_bg_code}",
                              activebackground=f"{background_bg_code}", command=lambda: button_click("tan("))
     real_button_tan.place(x=0, y=370)
 
-    button_cot = PhotoImage(file=f"assets\calculator_section\{button_cot}.png")
+    button_cot = PhotoImage(file=resource_path(f"{button_cot}.png"))
     button_cot_label = Label(image=button_cot, bg=f"{background_bg_code}")
     button_cot_label.place(x=0, y=310)
     real_button_cot = Button(root, text="1", image=button_cot, borderwidth=0, bg=f"{background_bg_code}",
                              activebackground=f"{background_bg_code}", command=lambda: button_click("cot("))
     real_button_cot.place(x=0, y=310)
 
-    button_log = PhotoImage(file=f"assets\calculator_section\{button_log}.png")
+    button_log = PhotoImage(file=resource_path(f"{button_log}.png"))
     button_log_label = Label(image=button_cot, bg=f"{background_bg_code}")
     button_log_label.place(x=0, y=250)
     real_button_log = Button(root, text="1", image=button_log, borderwidth=0, bg=f"{background_bg_code}",
                              activebackground=f"{background_bg_code}", command=lambda: button_click("log("))
     real_button_log.place(x=0, y=250)
 
-    button_pi = PhotoImage(file=f"assets\calculator_section\{button_pi}.png")
+    button_pi = PhotoImage(file=resource_path(f"{button_pi}.png"))
     button_pi_label = Label(image=button_pi, bg=f"{background_bg_code}")
     button_pi_label.place(x=0, y=130)
     real_button_pi = Button(root, image=button_pi, borderwidth=0, bg=f"{background_bg_code}",
                             activebackground=f"{background_bg_code}", command=pi)
     real_button_pi.place(x=0, y=130)
 
-    button_e = PhotoImage(file=f"assets\calculator_section\{button_e}.png")
+    button_e = PhotoImage(file=resource_path(f"{button_e}.png"))
     button_e_label = Label(image=button_e, bg=f"{background_bg_code}")
     button_e_label.place(x=0, y=190)
     real_button_e = Button(root, image=button_e, borderwidth=0, bg=f"{background_bg_code}",
                            activebackground=f"{background_bg_code}", command=e_neper)
     real_button_e.place(x=0, y=190)
 
-    button_1 = PhotoImage(file=f"assets\calculator_section\{button_num_1}.png")
+    button_1 = PhotoImage(file=resource_path(f"{button_num_1}.png"))
     button_1_label = Label(image=button_1, bg=f"{background_bg_code}")
     button_1_label.place(x=95, y=430)
     real_button_1 = Button(root, text="1", image=button_1, borderwidth=0, bg=f"{background_bg_code}",
                            activebackground=f"{background_bg_code}", command=lambda: button_click(1))
     real_button_1.place(x=95, y=430)
 
-    button_2 = PhotoImage(file=f"assets\calculator_section\{button_num_2}.png")
+    button_2 = PhotoImage(file=resource_path(f"{button_num_2}.png"))
     button_2_label = Label(image=button_2, bg=f"{background_bg_code}")
     button_2_label.place(x=190, y=430)
     real_button_2 = Button(root, text="2", image=button_2, borderwidth=0, bg=f"{background_bg_code}",
                            activebackground=f"{background_bg_code}", command=lambda: button_click(2))
     real_button_2.place(x=190, y=430)
 
-    button_3 = PhotoImage(file=f"assets\calculator_section\{button_num_3}.png")
+    button_3 = PhotoImage(file=resource_path(f"{button_num_3}.png"))
     button_3_label = Label(image=button_3, bg=f"{background_bg_code}")
     button_3_label.place(x=285, y=430)
     real_button_3 = Button(root, text="3", image=button_3, borderwidth=0, bg=f"{background_bg_code}",
                            activebackground=f"{background_bg_code}", command=lambda: button_click(3))
     real_button_3.place(x=285, y=430)
 
-    button_4 = PhotoImage(file=f"assets\calculator_section\{button_num_4}.png")
+    button_4 = PhotoImage(file=resource_path(f"{button_num_4}.png"))
     button_4_label = Label(image=button_4, bg=f"{background_bg_code}")
     button_4_label.place(x=95, y=370)
     real_button_4 = Button(root, text="4", image=button_4, borderwidth=0, bg=f"{background_bg_code}",
                            activebackground=f"{background_bg_code}", command=lambda: button_click(4))
     real_button_4.place(x=95, y=370)
 
-    button_5 = PhotoImage(file=f"assets\calculator_section\{button_num_5}.png")
+    button_5 = PhotoImage(file=resource_path(f"{button_num_5}.png"))
     button_5_label = Label(image=button_5, bg=f"{background_bg_code}")
     button_5_label.place(x=190, y=370)
     real_button_5 = Button(root, text="5", image=button_5, borderwidth=0, bg=f"{background_bg_code}",
                            activebackground=f"{background_bg_code}", command=lambda: button_click(5))
     real_button_5.place(x=190, y=370)
 
-    button_6 = PhotoImage(file=f"assets\calculator_section\{button_num_6}.png")
+    button_6 = PhotoImage(file=resource_path(f"{button_num_6}.png"))
     button_6_label = Label(image=button_6, bg=f"{background_bg_code}")
     button_6_label.place(x=285, y=370)
     real_button_6 = Button(root, text="6", image=button_6, borderwidth=0, bg=f"{background_bg_code}",
                            activebackground=f"{background_bg_code}", command=lambda: button_click(6))
     real_button_6.place(x=285, y=370)
 
-    button_7 = PhotoImage(file=f"assets\calculator_section\{button_num_7}.png")
+    button_7 = PhotoImage(file=resource_path(f"{button_num_7}.png"))
     button_7_label = Label(image=button_7, bg=f"{background_bg_code}")
     button_7_label.place(x=95, y=310)
     real_button_7 = Button(root, text="7", image=button_7, borderwidth=0, bg=f"{background_bg_code}",
                            activebackground=f"{background_bg_code}", command=lambda: button_click(7))
     real_button_7.place(x=95, y=310)
 
-    button_8 = PhotoImage(file=f"assets\calculator_section\{button_num_8}.png")
+    button_8 = PhotoImage(file=resource_path(f"{button_num_8}.png"))
     button_8_label = Label(image=button_8, bg=f"{background_bg_code}")
     button_8_label.place(x=190, y=310)
     real_button_8 = Button(root, text="8", image=button_8, borderwidth=0, bg=f"{background_bg_code}",
                            activebackground=f"{background_bg_code}", command=lambda: button_click(8))
     real_button_8.place(x=190, y=310)
 
-    button_9 = PhotoImage(file=f"assets\calculator_section\{button_num_9}.png")
+    button_9 = PhotoImage(file=resource_path(f"{button_num_9}.png"))
     button_9_label = Label(image=button_9, bg=f"{background_bg_code}")
     button_9_label.place(x=285, y=310)
     real_button_9 = Button(root, text="9", image=button_9, borderwidth=0, bg=f"{background_bg_code}",
                            activebackground=f"{background_bg_code}", command=lambda: button_click(9))
     real_button_9.place(x=285, y=310)
 
-    button_0 = PhotoImage(file=f"assets\calculator_section\{button_num_0}.png")
+    button_0 = PhotoImage(file=resource_path(f"{button_num_0}.png"))
     button_0_label = Label(image=button_0, bg=f"{background_bg_code}")
     button_0_label.place(x=190, y=490)
     real_button_0 = Button(root, text="0", image=button_0, borderwidth=0, bg=f"{background_bg_code}",
                            activebackground=f"{background_bg_code}", command=lambda: button_click(0))
     real_button_0.place(x=190, y=490)
 
-    button_negorposmaker = PhotoImage(file=f"assets\calculator_section\{button_negorposmaker}.png")
+    button_negorposmaker = PhotoImage(file=resource_path(f"{button_negorposmaker}.png"))
     button_negorposmaker_label = Label(image=button_negorposmaker, bg=f"{background_bg_code}")
     button_negorposmaker_label.place(x=95, y=490)
     real_button_negorposmaker = Button(root, text="-", image=button_negorposmaker, borderwidth=0,
@@ -6696,105 +6706,105 @@ def cal_screen():
                                        command=lambda: negorposmaker("-"))
     real_button_negorposmaker.place(x=95, y=490)
 
-    button_dot = PhotoImage(file=f"assets\calculator_section\{dot_button}.png")
+    button_dot = PhotoImage(file=resource_path(f"{dot_button}.png"))
     button_dot_label = Label(image=button_dot, bg=f"{background_bg_code}")
     button_dot_label.place(x=285, y=490)
     real_button_dot = Button(root, text=".", image=button_dot, borderwidth=0, bg=f"{background_bg_code}",
                              activebackground=f"{background_bg_code}", command=lambda: button_plus_screen("."))
     real_button_dot.place(x=285, y=490)
 
-    button_equal = PhotoImage(file=f"assets\calculator_section\{button_equal}.png")
+    button_equal = PhotoImage(file=resource_path(f"{button_equal}.png"))
     button_equal_label = Label(image=button_equal, bg=f"{background_bg_code}")
     button_equal_label.place(x=380, y=490)
     real_button_equal = Button(root, text="=", image=button_equal, borderwidth=0, bg=f"{background_bg_code}",
                                activebackground=f"{background_bg_code}", command=button_equal_screen)
     real_button_equal.place(x=380, y=490)
 
-    button_plus = PhotoImage(file=f"assets\\calculator_section\\{button_plus}.png")
+    button_plus = PhotoImage(file=resource_path(f"{button_plus}.png"))
     button_plus_label = Label(image=button_plus, bg=f"{background_bg_code}")
     button_plus_label.place(x=380, y=430)
     real_button_plus = Button(root, text="+", image=button_plus, borderwidth=0, bg=f"{background_bg_code}",
                               activebackground=f"{background_bg_code}", command=lambda: button_plus_screen("+"))
     real_button_plus.place(x=380, y=430)
 
-    button_mines = PhotoImage(file=f"assets\\calculator_section\\{button_mines}.png")
+    button_mines = PhotoImage(file=resource_path(f"{button_mines}.png"))
     button_mines_label = Label(image=button_mines, bg=f"{background_bg_code}")
     button_mines_label.place(x=380, y=370)
     real_button_mines = Button(root, text="-", image=button_mines, borderwidth=0, bg=f"{background_bg_code}",
                                activebackground=f"{background_bg_code}", command=lambda: button_mines_screen("-"))
     real_button_mines.place(x=380, y=370)
 
-    button_times = PhotoImage(file=f"assets\calculator_section\{button_times}.png")
+    button_times = PhotoImage(file=resource_path(f"{button_times}.png"))
     button_times_label = Label(image=button_times, bg=f"{background_bg_code}")
     button_times_label.place(x=380, y=310)
     real_button_times = Button(root, text="*", image=button_times, borderwidth=0, bg=f"{background_bg_code}",
                                activebackground=f"{background_bg_code}", command=lambda: button_times_screen("*"))
     real_button_times.place(x=380, y=310)
 
-    button_fraction = PhotoImage(file=f"assets\calculator_section\{button_fraction}.png")
+    button_fraction = PhotoImage(file=resource_path(f"{button_fraction}.png"))
     button_fraction_label = Label(image=button_fraction, bg=f"{background_bg_code}")
     button_fraction_label.place(x=380, y=250)
     real_button_fraction = Button(root, text="/", image=button_fraction, borderwidth=0, bg=f"{background_bg_code}",
                                   activebackground=f"{background_bg_code}", command=lambda: button_fraction_screen("/"))
     real_button_fraction.place(x=380, y=250)
 
-    button_sqrt2 = PhotoImage(file=f"assets\calculator_section\{button_sqrt2}.png")
+    button_sqrt2 = PhotoImage(file=resource_path(f"{button_sqrt2}.png"))
     button_sqrt2_label = Label(image=button_sqrt2, bg=f"{background_bg_code}")
     button_sqrt2_label.place(x=285, y=250)
     real_button_sqrt2 = Button(root, image=button_sqrt2, borderwidth=0, bg=f"{background_bg_code}",
                                activebackground=f"{background_bg_code}", command=lambda: button_click("√"))
     real_button_sqrt2.place(x=285, y=250)
 
-    button_fib = PhotoImage(file=f"assets\calculator_section\{button_fib}.png")
+    button_fib = PhotoImage(file=resource_path(f"{button_fib}.png"))
     button_fib_label = Label(image=button_fib, bg=f"{background_bg_code}")
     button_fib_label.place(x=95, y=130)
     real_button_fib = Button(root, image=button_fib, borderwidth=0, bg=f"{background_bg_code}",
                              activebackground=f"{background_bg_code}", command=lambda: button_fib_screen("fib"))
     real_button_fib.place(x=95, y=130)
 
-    button_power2 = PhotoImage(file=f"assets\calculator_section\{button_power2}.png")
+    button_power2 = PhotoImage(file=resource_path(f"{button_power2}.png"))
     button_power2_label = Label(image=button_power2, bg=f"{background_bg_code}")
     button_power2_label.place(x=190, y=250)
     real_button_power2 = Button(root, image=button_power2, borderwidth=0, bg=f"{background_bg_code}",
                                 activebackground=f"{background_bg_code}", command=lambda: button_power_screen("^"))
     real_button_power2.place(x=190, y=250)
 
-    button_onfractionx = PhotoImage(file=f"assets\calculator_section\{button_onfractionx}.png")
+    button_onfractionx = PhotoImage(file=resource_path(f"{button_onfractionx}.png"))
     button_onfractionx_label = Label(image=button_onfractionx, bg=f"{background_bg_code}")
     button_onfractionx_label.place(x=95, y=250)
     real_button_onfractionx = Button(root, image=button_onfractionx, borderwidth=0, bg=f"{background_bg_code}",
                                      activebackground=f"{background_bg_code}", command=onfractionx)
     real_button_onfractionx.place(x=95, y=250)
 
-    button_percent = PhotoImage(file=f"assets\calculator_section\{button_percent}.png")
+    button_percent = PhotoImage(file=resource_path(f"{button_percent}.png"))
     button_percent_label = Label(image=button_percent, bg=f"{background_bg_code}")
     button_percent_label.place(x=95, y=190)
     real_button_percent = Button(root, image=button_percent, borderwidth=0, bg=f"{background_bg_code}",
                                  activebackground=f"{background_bg_code}", command=percent)
     real_button_percent.place(x=95, y=190)
 
-    button_backward = PhotoImage(file=f"assets\calculator_section\{button_backward}.png")
+    button_backward = PhotoImage(file=resource_path(f"{button_backward}.png"))
     button_backward_label = Label(image=button_backward, bg=f"{background_bg_code}")
     button_backward_label.place(x=380, y=190)
     real_button_backward = Button(root, image=button_backward, borderwidth=0, bg=f"{background_bg_code}",
                                   activebackground=f"{background_bg_code}", command=backward)
     real_button_backward.place(x=380, y=190)
 
-    button_clear = PhotoImage(file=f"assets\calculator_section\{button_clear}.png")
+    button_clear = PhotoImage(file=resource_path(f"{button_clear}.png"))
     button_clear_label = Label(image=button_clear, bg=f"{background_bg_code}")
     button_clear_label.place(x=380, y=130)
     real_button_clear = Button(root, image=button_clear, borderwidth=0, bg=f"{background_bg_code}",
                                activebackground=f"{background_bg_code}", command=button_clear_screen)
     real_button_clear.place(x=380, y=130)
 
-    button_fact = PhotoImage(file=f"assets\calculator_section\{button_fact}.png")
+    button_fact = PhotoImage(file=resource_path(f"{button_fact}.png"))
     button_fact_label = Label(image=button_fact, bg=f"{background_bg_code}")
     button_fact_label.place(x=190, y=130)
     real_button_fact = Button(root, image=button_fact, borderwidth=0, bg=f"{background_bg_code}",
                               activebackground=f"{background_bg_code}", command=lambda: button_click("!"))
     real_button_fact.place(x=190, y=130)
 
-    button_openingparenthesis = PhotoImage(file=f"assets\calculator_section\{button_openingparenthesis}.png")
+    button_openingparenthesis = PhotoImage(file=resource_path(f"{button_openingparenthesis}.png"))
     button_openingparenthesis_label = Label(image=button_openingparenthesis, bg=f"{background_bg_code}")
     button_openingparenthesis_label.place(x=190, y=190)
     real_button_openingparenthesis = Button(root, image=button_openingparenthesis, borderwidth=0,
@@ -6802,7 +6812,7 @@ def cal_screen():
                                             command=lambda: button_pranthesis("("))
     real_button_openingparenthesis.place(x=190, y=190)
 
-    button_closingparenthesis = PhotoImage(file=f"assets\calculator_section\{button_closingparenthesis}.png")
+    button_closingparenthesis = PhotoImage(file=resource_path(f"{button_closingparenthesis}.png"))
     button_closingparenthesis_label = Label(image=button_closingparenthesis, bg=f"{background_bg_code}")
     button_closingparenthesis_label.place(x=285, y=190)
     real_button_closingparenthesis = Button(root, image=button_closingparenthesis, borderwidth=0,
@@ -6810,7 +6820,7 @@ def cal_screen():
                                             command=lambda: button_pranthesis(")"))
     real_button_closingparenthesis.place(x=285, y=190)
 
-    button_exp = PhotoImage(file=f"assets\calculator_section\{button_exp}.png")
+    button_exp = PhotoImage(file=resource_path(f"{button_exp}.png"))
     button_exp_label = Label(image=button_exp, bg=f"{background_bg_code}")
     button_exp_label.place(x=285, y=130)
     real_button_exp = Button(root, image=button_exp, borderwidth=0, bg=f"{background_bg_code}",
@@ -6827,7 +6837,7 @@ root = Tk()
 root.title("Calculator")
 root.maxsize(width=475, height=550)
 root.minsize(width=475, height=550)
-root.iconbitmap("assets\\icons\\calculator_icon_for_inside_the_app.ico")
+root.iconbitmap(resource_path("calculator_icon_for_inside_the_app.ico"))
 
 cal_screen()
 
